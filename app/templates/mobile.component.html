@@ -1,0 +1,71 @@
+<!-- mobile -->
+<form class="mobile">
+
+    <!-- mobile__layout -->
+    <div class="mobile__layout">
+
+        <!-- label -->
+        <label class="label">{{ content.inputLabel }}</label>
+        <!-- /label -->
+        
+        <!-- inputs -->
+        <div class="inputs">
+
+            <!-- text-field -->
+            <div class="text-field">
+                <input type="text">
+            </div>
+            <!-- /text-field -->
+
+        </div>
+        <!-- /inputs -->
+
+    </div>
+    <!-- /mobile__layout -->
+
+    <!-- mobile__layout -->
+    <div class="mobile__layout">
+
+        <!-- mobile__list -->
+        <ul class="mobile__list">
+            <li *ngFor="#item of content.explanation">{{item}}</li>
+        </ul>
+        <!-- /mobile__list -->
+
+    </div>
+    <!-- /mobile__layout -->
+
+    <!-- mobile__layout -->
+    <div class="mobile__layout">
+
+        <!-- nice-chk -->
+        <div class="nice-checkbox">
+            <input type="checkbox" id="mobile__save"
+                   [(ngModel)]="savePaymentData"
+                   (change)="onChangeSave()">
+
+            <label for="mobile__save">{{ content.chkLabel }}</label>
+        </div>
+        <!-- /nice-chk -->
+
+    </div>
+    <!-- /mobile__layout -->
+
+    <!-- mobile__btns -->
+    <div class="mobile__btns">
+
+        <!-- btn -->
+        <button class="btn mobile__cancel"
+                (click)="onCancel()">{{ content.btnCancel }}</button>
+        <!-- /btn -->
+
+        <!-- btn -->
+        <button class="btn mobile__ok"
+                (click)="onOk()">{{ content.btnOk }}</button>
+        <!-- /btn -->
+
+    </div>
+    <!-- /mobile__btns -->
+
+</form>
+<!-- /mobile -->

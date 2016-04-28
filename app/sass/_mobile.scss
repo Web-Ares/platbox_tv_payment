@@ -1,0 +1,35 @@
+.mobile {
+  padding: 83px 15.88541667% 70px;
+
+  .mobile__list {
+    padding-top: 52px;
+    margin-bottom: 46px;
+
+    li {
+      @include title-font-2();
+      font-size: 25px;
+      color: $site__title-color;
+      padding-left: 83px;
+      position: relative;
+      line-height: 40px;
+      width: 1200px;
+      margin-bottom: 20px;
+
+      &:before {
+        position: absolute;
+        top: 13px;
+        left: 20px;
+        width: 10px;
+        height: 10px;
+        background: $site__title-color;
+        border-radius: 50%;
+        content: '';
+      }
+    }
+  }
+
+  .mobile__btns {
+    display: flex;
+    padding-top: 52px;
+  }
+}

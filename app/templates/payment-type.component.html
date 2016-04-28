@@ -1,0 +1,22 @@
+<!-- payment-types -->
+<section class="payment-types">
+
+    <!-- payment-types__title -->
+    <h2 class="payment-types__title">{{title}}</h2>
+    <!-- /payment-types__title -->
+
+    <!-- payment-types__btns -->
+    <div class="payment-types__btns">
+
+        <!-- payment-types__btn -->
+        <a href="#" class="payment-types__btn"
+           *ngFor="#paymentType of paymentTypes"
+           [class.selected]="paymentType === selectedPaymentType"
+           (click)="onSelect(paymentType)">{{ paymentType.name }}</a>
+        <!-- /payment-types__btn -->
+
+    </div>
+    <!-- /payment-types__btns -->
+
+</section>
+<!-- /payment-types -->

@@ -1,0 +1,43 @@
+//fonts
+@mixin title-font() {
+  font-family: "pfbeausanspro-thin";
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin title-font-2() {
+  font-family: 'PT Sans Caption', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin title-font-3() {
+  font-family: 'PT Sans Caption', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin justify() {
+  text-align: justify;
+
+  &:after {
+    display: inline-block;
+    width: 100%;
+    content: '';
+  }
+}
+
+@mixin absoluteCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+}
+@mixin absoluteCenterX() {
+  position: absolute;
+  left: 50%;
+  transform: translateX( -50% );
+}
+@mixin absoluteCenterY() {
+  position: absolute;
+  top: 50%;
+  transform: translateY( -50% );
+}

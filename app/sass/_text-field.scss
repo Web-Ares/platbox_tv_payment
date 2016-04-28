@@ -1,0 +1,19 @@
+.text-field {
+  display: inline-block;
+  position: relative;
+  width: 770px;
+  height: 80px;
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: $text-field-back;
+    color: $text-field-color;
+    font-size: 25px;
+    padding: 0 25px;
+  }
+}

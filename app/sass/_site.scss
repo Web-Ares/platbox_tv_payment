@@ -1,0 +1,42 @@
+.site {
+  min-height: 100%;
+  background: #002240;
+  background: -moz-linear-gradient(top,  #002240 0%, #005999 100%);
+  background: -webkit-linear-gradient(top,  #002240 0%,#005999 100%);
+  background: linear-gradient(to bottom,  #002240 0%,#005999 100%);
+
+  .site__header {
+    padding: 169px 0 0 15.88541667%;
+  }
+
+  .site__title {
+    position: relative;
+    color: $site__title-color;
+    padding-left: 155px;
+
+    &:after{
+      position: absolute;
+      top: 1px;
+      left: 0;
+      background: $site__title-after url("../app/img/site__title.png") no-repeat center;
+      width: 100px;
+      height: 100px;
+      content: '';
+    }
+
+    h1{
+      @include title-font();
+      font-size: 70px;
+      margin-bottom: 3px;
+    }
+
+    h2 {
+      @include title-font-2();
+      font-size: 35px;
+      margin-left: 2px;
+    }
+
+  }
+}
+
+

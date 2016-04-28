@@ -1,0 +1,10 @@
+.label {
+  width: 266px;
+  height: 80px;
+  padding-top: 26px;
+  @include title-font-2();
+  display: inline-block;
+  font-size: 25px;
+  color: $site__title-color;
+  vertical-align: middle;
+}

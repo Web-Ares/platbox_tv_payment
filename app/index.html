@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>Angular 2 QuickStart</title>
+    <meta name="viewport" content="width=1920">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="app/css/index.min.css">
+    <style>
+        .preloader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .preloader:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: url("app/img/preloader.png");
+            width: 98px;
+            height: 98px;
+            margin: -49px 0 0 -49px;
+            content: '';
+            -webkit-animation-name: spin;
+            animation-name: spin;
+            -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        @-webkit-keyframes spin {
+            from { -webkit-transform: rotate(0deg); }
+            to { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            from {transform:rotate(0deg);}
+            to {transform:rotate(360deg);}
+        }
+    </style>
+    <!-- 1. Load libraries -->
+
+    <!-- IE required polyfills, in this exact order -->
+    <script src="app/js/vendors/es6-shim.min.js"></script>
+    <script src="app/js/vendors/system-polyfills.js"></script>
+    <script src="app/js/vendors/shims_for_IE.js"></script>
+    <script src="app/js/vendors/angular2-polyfills.min.js"></script>
+    <script src="app/js/vendors/system.js"></script>
+    <script src="app/js/vendors/typescript.js"></script>
+    <script src="app/js/vendors/Rx.min.js"></script>
+    <script src="app/js/vendors/angular2.dev.js"></script>
+
+
+    <script>
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/js/main')
+                .then(null, console.error.bind(console));
+    </script>
+</head>
+<!-- 3. Display the application -->
+<body>
+<my-app>
+
+    <!-- preloader -->
+    <div class="preloader">
+
+    </div>
+    <!-- /preloader -->
+
+</my-app>
+</body>
+</html>

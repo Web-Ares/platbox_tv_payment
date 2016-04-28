@@ -1,0 +1,59 @@
+.payment-types {
+  padding: 70px 15.88541667% 70px;
+
+  .payment-types__title {
+    color: $site__title-color;
+    @include title-font-2();
+    font-size: 30px;
+    margin-bottom: 93px;
+  }
+
+  .payment-types__btn {
+    display: block;
+    position: relative;
+    width: 870px;
+    height: 80px;
+    background: $payment-types__btn-back;
+    color: $payment-types__btn-color;
+    margin-bottom: 10px;
+    font-size: 25px;
+    white-space: nowrap;
+    @include title-font-2();
+    padding: 26px 0 0 28px;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    -webkit-transition-property: color, background, box-shadow, -webkit-transform;
+    transition-property: color, background, box-shadow, transform;
+    box-shadow: 0 0 10px rgba( 255,255,255,0 );
+
+    &:after {
+      position: absolute;
+      right: 35px;
+      top: 50%;
+      border: 3px solid $payment-types__btn-color;
+      border-bottom: none;
+      border-left: none;
+      width: 16px;
+      height: 16px;
+      margin-top: -8px;
+      transform-origin: 50%;
+      transform: rotate( 45deg );
+      content: '';
+    }
+
+    &.selected,
+    &:focus,
+    &:hover {
+      background: $payment-types__btn-back-hover;
+      color: $payment-types__btn-color-hover;
+      transform: translateX( 20px );
+      box-shadow: 0 0 10px rgba( 255,255,255,0.53 );
+
+      &:after {
+        border-color: $payment-types__btn-color-hover;
+      }
+
+    }
+  }
+
+}

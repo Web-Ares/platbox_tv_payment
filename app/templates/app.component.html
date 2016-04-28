@@ -1,0 +1,35 @@
+
+<!-- site -->
+<div class="site">
+
+    <!-- site__header -->
+    <div class="site__header">
+
+        <!-- site__title -->
+        <div class="site__title">
+            <h1>{{ content.title }}</h1>
+            <h2>{{ content.text }}</h2>
+        </div>
+        <!-- /site__title -->
+
+    </div>
+    <!-- /site__header -->
+
+    <my-payment-types
+            (setSelectedPaymentType)="setSelectedPaymentType($event)"
+            *ngIf="!selectedPaymentType && paymentsVisibility"></my-payment-types>
+
+    <my-mobile
+            [savePaymentData]="paymentData.savePaymentData"
+            [mobileNumber]="paymentData.mobileNumber"
+            *ngIf="selectedPaymentType && selectedPaymentType.id == 1 && paymentsVisibility"
+            (setSelectedPaymentType)="setSelectedPaymentType($event)"
+            (changeSavePaymentData)="changeSavePaymentData($event)"
+            (pay)="pay($event)"></my-mobile>
+
+    <my-transaction
+            *ngIf="!paymentsVisibility && transactionVisibility"
+            ></my-transaction>
+
+</div>
+<!-- /site -->
