@@ -1,0 +1,43 @@
+.autopay{
+  padding: 83px 15.88541667% 70px;
+
+  .autopay__layout{
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .autopay__save {
+    padding-top: 52px;
+  }
+
+  .autopay__title {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 83px;
+    color: $site__title-color;
+    @include title-font-2();
+  }
+
+  .autopay__ask {
+    color: $site__title-color;
+    @include title-font-2();
+    padding-top: 42px;
+  }
+
+  .autopay__ask-title {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 73px;
+  }
+
+  .autopay__ask-text {
+    font-size: 30px;
+    line-height: 60px;
+    margin-bottom: 160px;
+  }
+
+  .autopay__btns {
+    display: flex;
+    padding-top: 150px;
+  }
+}

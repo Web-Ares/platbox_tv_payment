@@ -1,0 +1,69 @@
+.license {
+  padding: 202px 15.88541667% 70px;
+
+  .license__agreement {
+    position: relative;
+    @include title-font-2();
+    font-size: 30px;
+    color: $site__title-color;
+    line-height: 60px;
+    padding-left: 100px;
+    margin-bottom: 241px;
+
+    &:after{
+      position: absolute;
+      top: 17px;
+      left: 3px;
+      box-sizing: border-box;
+      border: 10px solid #fff;
+      border-top: none;
+      border-right: none;
+      width: 34px;
+      height: 21px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      content: '';
+    }
+  }
+  .license__btns {
+    position: relative;
+    display: flex;
+  }
+
+  .license__text-btn {
+    width: 380px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .license__text {
+    padding: 169px 15.88541667% 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: #002240;
+    background: -moz-linear-gradient(top,  #002240 0%, #005999 100%);
+    background: -webkit-linear-gradient(top,  #002240 0%,#005999 100%);
+    background: linear-gradient(to bottom,  #002240 0%,#005999 100%);
+
+    h2 {
+      @include title-font();
+      font-size: 70px;
+      color: $site__title-color;
+      margin-bottom: 95px;
+    }
+
+    p {
+      color: $license-color;
+      @include title-font-2();
+      font-size: 25px;
+      line-height: 50px;
+      margin-bottom: 31px;
+      max-width: 1270px;
+    }
+  }
+}

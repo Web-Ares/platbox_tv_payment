@@ -19,17 +19,41 @@
             (setSelectedPaymentType)="setSelectedPaymentType($event)"
             *ngIf="!selectedPaymentType && paymentsVisibility"></my-payment-types>
 
-    <my-mobile
-            [savePaymentData]="paymentData.savePaymentData"
-            [mobileNumber]="paymentData.mobileNumber"
-            *ngIf="selectedPaymentType && selectedPaymentType.id == 1 && paymentsVisibility"
-            (setSelectedPaymentType)="setSelectedPaymentType($event)"
+    <my-payment
+            [paymentData]="paymentData"
+            *ngIf="selectedPaymentType && selectedPaymentType.id && paymentsVisibility"
+            (cancel)="cancel($event)"
             (changeSavePaymentData)="changeSavePaymentData($event)"
-            (pay)="pay($event)"></my-mobile>
+            (changeMobileNumber)="changeMobileNumber($event)"
+            (changeAlfa)="changeAlfa($event)"
+            (changeYandex)="changeYandex($event)"
+            (changePayPaal)="changePayPaal($event)"
+            (changeCardNumber)="changeCardNumber($event)"
+            (changeCardMonth)="changeCardMonth($event)"
+            (changeCardYear)="changeCardYear($event)"
+            (changeCardCvv)="changeCardCvv($event)"
+            (showLicense)="showLicense()"></my-payment>
+
+
+    <my-license
+            *ngIf="!paymentsVisibility && licenseVisibility"
+            (cancel)="cancel($event)"
+            (showTransaction)="showTransaction($event)"></my-license>
 
     <my-transaction
             *ngIf="!paymentsVisibility && transactionVisibility"
+            (cancel)="cancel($event)"
+            (showAutoPay)="showAutoPay($event)"
+            [paymentData]="paymentData"
             ></my-transaction>
+
+    <my-autopay
+            *ngIf="!paymentsVisibility && autoPayVisibility"
+            (cancel)="cancel($event)"
+            [autopayMinimum]="autopayData.minimum"
+            [autopayMaximum]="autopayData.amount"
+            (onChangeAutopayMinimum)="onChangeAutopayMinimum($event)"
+            (onChangeAutopayMaximum)="onChangeAutopayMaximum($event)"></my-autopay>
 
 </div>
 <!-- /site -->

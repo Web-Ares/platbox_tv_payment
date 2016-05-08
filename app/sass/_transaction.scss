@@ -1,6 +1,77 @@
 .transaction{
-  height: 634px;
+  min-height: 634px;
   position: relative;
-  padding: 70px 15.88541667% 70px;
+  padding: 133px 15.88541667% 70px;
+
+  .transaction__success {
+    padding-bottom: 1px;
+  }
+
+  .transaction__success-title {
+    position: relative;
+    @include title-font-2();
+    font-size: 35px;
+    color: $site__title-color;
+    line-height: 60px;
+    padding-left: 100px;
+    margin-bottom: 59px;
+
+    &:after{
+      position: absolute;
+      top: 16px;
+      left: 3px;
+      box-sizing: border-box;
+      border: 10px solid #fff;
+      border-top: none;
+      border-right: none;
+      width: 34px;
+      height: 21px;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      content: '';
+    }
+  }
+
+  dl{
+    overflow: hidden;
+    @include title-font-2();
+    color: $site__title-color;
+    font-size: 25px;
+    line-height: 60px;
+    margin-bottom: 131px;
+
+    dt {
+      float: left;
+      clear: both;
+      opacity: .3;
+      width: 329px;
+      font-weight: 400;
+    }
+    dd{
+      float: left;
+    }
+  }
+
+  .transaction__btns {
+    display: flex;
+  }
+
+  .transaction__filed {
+    color: $site__title-color;
+    @include title-font-2();
+    padding-top: 42px;
+  }
+
+  .transaction__filed-title {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 73px;
+  }
+
+  .transaction__filed-text {
+    font-size: 30px;
+    line-height: 60px;
+    margin-bottom: 160px;
+  }
 
 }

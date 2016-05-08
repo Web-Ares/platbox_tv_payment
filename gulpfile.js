@@ -16,6 +16,7 @@ var paths = {
     templates: 'app/templates/*.html',
     images: 'app/img/**/*',
     pictures: 'app/pic/**/*',
+    php: 'app/php/**/*',
     jsVendors: [
         'app/js/vendors/**/*.*',
         'node_modules/es6-shim/es6-shim.min.js',
@@ -27,7 +28,8 @@ var paths = {
         'node_modules/angular2/bundles/router.min.js',
         'node_modules/typescript/lib/typescript.js',
         'node_modules/rxjs/bundles/Rx.min.js',
-        'node_modules/systemjs/dist/system.js'
+        'node_modules/systemjs/dist/system.js',
+        'node_modules/angular2/bundles/http.dev.js'
     ],
     ts: 'app/ts/**/*.ts',
     fonts: 'app/fonts/**/*'
@@ -90,6 +92,7 @@ gulp.task('watch', function() {
     gulp.watch(paths.styles,    [ 'styles',     browserSync.reload ]);
     gulp.watch(paths.views,     [ 'views',      browserSync.reload ]);
     gulp.watch(paths.images,     [ 'images',      browserSync.reload ]);
+    gulp.watch(paths.php,     [ 'php',      browserSync.reload ]);
 });
 
 gulp.task('images', function() {
@@ -104,6 +107,11 @@ gulp.task('pictures', function() {
         .pipe(gulp.dest('dist/app/pic'));
 });
 
+gulp.task('php', function() {
+    return gulp.src(paths.php)
+        .pipe(gulp.dest('dist/app/php'));
+});
+
 gulp.task('fonts', function () {
     return gulp.src(paths.fonts, {
         base: 'app/fonts'
@@ -111,7 +119,7 @@ gulp.task('fonts', function () {
 });
 
 function serve() {
-    return run( 'styles', 'ts', 'templates', 'jsVendors', 'images', 'pictures', 'views', 'fonts', 'serve');
+    return run( 'styles', 'ts', 'templates', 'jsVendors', 'images', 'pictures', 'views', 'php', 'fonts', 'serve');
 }
 
 gulp.task('default', ['clean'], serve());

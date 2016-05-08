@@ -1,19 +1,16 @@
-.mobile {
+.card {
 
-  .mobile__layout{
+  .card__layout{
     display: flex;
-  }
 
-  .mobile__logo {
-    margin-bottom: 60px;
-
-    img {
-      display: block;
+    .inputs{
+      margin-bottom: 10px;
     }
   }
 
-  .mobile__list {
+  .card__list {
     padding-top: 52px;
+    margin-bottom: 46px;
 
     li {
       @include title-font-2();

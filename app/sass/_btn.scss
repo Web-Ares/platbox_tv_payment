@@ -5,7 +5,6 @@
   padding: 0 10px;
   color: $btn-color;
   display: flex;
-  text-align: left;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -17,11 +16,15 @@
 
   &:hover {
     background: $btn-back-hover;
+    border-color: $btn-border-hover;
+    color: $btn-color-active;
   }
 
   &:active {
     color: $btn-color-active;
     background: $btn-back-active;
+    border-color: $btn-border-hover;
+
   }
 
 }

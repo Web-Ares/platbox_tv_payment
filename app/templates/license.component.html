@@ -1,0 +1,57 @@
+<!-- license -->
+<div class="license">
+
+    <!-- license__content -->
+    <div class="license__content" *ngIf="!showedText">
+
+        <!-- license__agreement -->
+        <div class="license__agreement">{{ content.text }}</div>
+        <!-- /license__agreement -->
+
+        <!-- license__btns -->
+        <div class="license__btns">
+
+            <!-- btn -->
+            <button class="btn license__cancel"
+                    (click)="onCancel()">{{ content.btnCancel }}</button>
+            <!-- /btn -->
+
+            <!-- btn -->
+            <button class="btn license__ok"
+                    (click)="onOk()">{{ content.btnOk }}</button>
+            <!-- /btn -->
+
+            <!-- btn -->
+            <button class="btn license__text-btn"
+                    (click)="onReadText()">{{ content.btnLicense }}</button>
+            <!-- /btn -->
+
+        </div>
+        <!-- /license__btns -->
+
+    </div>
+    <!-- /license__content -->
+
+    <!-- license__text -->
+    <div class="license__text" *ngIf="showedText">
+
+        <h2>{{content.licenseTitle}}</h2>
+
+        <p *ngFor="#text of content.licenseTexts">{{ text }}</p>
+
+        <!-- license__btns -->
+        <div class="license__btns">
+
+            <!-- btn -->
+            <button class="btn license__text-btn"
+                    (click)="onReadOk()">{{ content.btnRead }}</button>
+            <!-- /btn -->
+
+        </div>
+        <!-- /license__btns -->
+
+    </div>
+    <!-- /license__text -->
+
+</div>
+<!-- /license -->

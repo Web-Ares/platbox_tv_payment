@@ -10,11 +10,53 @@
     <!-- transaction__success -->
     <div class="transaction__success" *ngIf="success">
 
+        <!-- transaction__success-title -->
+        <h2 class="transaction__success-title">{{ content.successTitle }}</h2>
+        <!-- /transaction__success-title -->
+
+        <dl>
+            <dt>{{ content.number }}</dt>
+            <dd>{{ number }}</dd>
+            <dt>{{ content.date }}</dt>
+            <dd>{{ date }}</dd>
+            <dt>{{ content.amount }}</dt>
+            <dd>{{ amount }}</dd>
+        </dl>
+
+        <!-- btn -->
+        <button class="btn transaction__ok"
+                (click)="onOk()">{{ content.btnOk }}</button>
+        <!-- /btn -->
+
     </div>
     <!-- /transaction__success -->
 
     <!-- transaction__filed -->
     <div class="transaction__filed" *ngIf="failed">
+
+        <!-- transaction__filed-title -->
+        <h2 class="transaction__filed-title">{{ content.failTitle }}</h2>
+        <!-- /transaction__filed-title -->
+
+        <!-- transaction__filed-text -->
+        <p class="transaction__filed-text">{{ content.failText }}</p>
+        <!-- /transaction__filed-text -->
+
+        <!-- mobile__btns -->
+        <div class="transaction__btns">
+
+            <!-- btn -->
+            <button class="btn transaction__cancel"
+                    (click)="onCancel()">{{ content.btnCancel }}</button>
+            <!-- /btn -->
+
+            <!-- btn -->
+            <button class="btn transaction__repeat"
+                    (click)="onRepeat()">{{ content.btnRepeat }}</button>
+            <!-- /btn -->
+
+        </div>
+        <!-- /mobile__btns -->
 
     </div>
     <!-- /transaction__filed -->

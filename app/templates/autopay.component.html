@@ -1,0 +1,111 @@
+<!-- autopay -->
+<div class="autopay">
+
+    <!-- autopay__ask -->
+    <div class="autopay__ask" *ngIf="!save">
+
+        <!-- autopay__-title -->
+        <h2 class="autopay__ask-title">{{ content.askTitle }}</h2>
+        <!-- /autopay__-title -->
+
+        <!-- autopay__-text -->
+        <p class="autopay__ask-text">{{ content.askText }}</p>
+        <!-- /autopay__-text -->
+
+        <!-- autopay__btns -->
+        <div class="autopay__btns">
+
+            <!-- btn -->
+            <button class="btn autopay__cancel"
+                    (click)="onCancel()">{{ content.btnCancel }}</button>
+            <!-- /btn -->
+
+            <!-- btn -->
+            <button class="btn autopay__ok"
+                    (click)="onOk()">{{ content.btnAskOk }}</button>
+            <!-- /btn -->
+
+        </div>
+        <!-- /autopay__btns -->
+        
+    </div>
+    <!-- /autopay__ask -->
+
+    <!-- autopay__save -->
+    <div class="autopay__save" *ngIf="save">
+
+        <!-- autopay__title -->
+        <h2 class="autopay__title">{{ content.title }}</h2>
+        <!-- /autopay__title -->
+
+        <!-- autopay__layout -->
+        <div class="autopay__layout">
+
+            <!-- label -->
+            <label class="label" for="autopay__minimum">{{ content.minSum }}</label>
+            <!-- /label -->
+
+            <!-- inputs -->
+            <div class="inputs">
+
+                <!-- text-field -->
+                <div class="text-field">
+                    <input type="text"
+                           [(ngModel)]="autopayMinimum"
+                           id="autopay__minimum"
+                           (keyup)="changeAutopayMinimum()">
+                </div>
+                <!-- /text-field -->
+
+            </div>
+            <!-- /inputs -->
+
+        </div>
+        <!-- /autopay__layout -->
+
+        <!-- autopay__layout -->
+        <div class="autopay__layout">
+
+            <!-- label -->
+            <label class="label" for="autopay__maximum">{{ content.maxSum }}</label>
+            <!-- /label -->
+
+            <!-- inputs -->
+            <div class="inputs">
+
+                <!-- text-field -->
+                <div class="text-field">
+                    <input type="text"
+                           [(ngModel)]="autopayMaximum"
+                           id="autopay__maximum"
+                           (keyup)="changeAutopayMaximum()">
+                </div>
+                <!-- /text-field -->
+
+            </div>
+            <!-- /inputs -->
+
+        </div>
+        <!-- /autopay__layout -->
+
+        <!-- autopay__btns -->
+        <div class="autopay__btns">
+
+            <!-- btn -->
+            <button class="btn autopay__cancel"
+                    (click)="onCancel()">{{ content.btnNo }}</button>
+            <!-- /btn -->
+
+            <!-- btn -->
+            <button class="btn autopay__save-btn"
+                    (click)="onSave()">{{ content.btnSave }}</button>
+            <!-- /btn -->
+
+        </div>
+        <!-- /autopay__btns -->
+
+    </div>
+    <!-- /autopay__save -->
+
+</div>
+<!-- /autopay -->

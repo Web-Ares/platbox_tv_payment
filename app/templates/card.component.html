@@ -1,0 +1,90 @@
+<!-- card -->
+<form class="card">
+
+    <!-- card__layout -->
+    <div class="card__layout">
+
+        <!-- label -->
+        <label class="label" for="card__number">{{ content.numberLabel }}</label>
+        <!-- /label -->
+        
+        <!-- inputs -->
+        <div class="inputs">
+
+            <!-- text-field -->
+            <div class="text-field">
+                <input type="text"
+                       [(ngModel)]="cardNumber"
+                       id="card__number"
+                       (keyup)="onChangeCardNumber()">
+            </div>
+            <!-- /text-field -->
+
+        </div>
+        <!-- /inputs -->
+
+    </div>
+    <!-- /card__layout -->
+
+    <!-- card__layout -->
+    <div class="card__layout">
+
+        <!-- label -->
+        <label class="label" for="card__month">{{ content.periodLabel }}</label>
+        <!-- /label -->
+
+        <!-- inputs -->
+        <div class="inputs">
+
+            <!-- text-field -->
+            <div class="text-field text-field_small">
+                <input type="text"
+                       [(ngModel)]="cardMonth"
+                       id="card__month"
+                       (keyup)="onChangeCardMonth()">
+            </div>
+            <!-- /text-field -->
+
+            <!-- text-field -->
+            <div class="text-field text-field_small">
+                <input type="text"
+                       [(ngModel)]="cardYear"
+                       id="card__year"
+                       (keyup)="onChangeCardYear()">
+            </div>
+            <!-- /text-field -->
+
+        </div>
+        <!-- /inputs -->
+
+    </div>
+    <!-- /card__layout -->
+
+    <!-- card__layout -->
+    <div class="card__layout">
+
+        <!-- label -->
+        <label class="label" for="card__cvv">{{ content.cvvLabel }}</label>
+        <!-- /label -->
+
+        <!-- inputs -->
+        <div class="inputs">
+
+            <!-- text-field -->
+            <div class="text-field">
+                <input type="password"
+                       maxlength="3"
+                       [(ngModel)]="cardCvv"
+                       id="card__cvv"
+                       (keyup)="onChangeCardCvv()">
+            </div>
+            <!-- /text-field -->
+
+        </div>
+        <!-- /inputs -->
+
+    </div>
+    <!-- /card__layout -->
+
+</form>
+<!-- /card -->

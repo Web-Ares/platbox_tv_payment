@@ -1,0 +1,78 @@
+<!-- payment -->
+<form class="payment">
+
+    <my-mobile
+            *ngIf="paymentData.paymentType == 1"
+            [mobileNumber]="paymentData.mobileNumber"
+            (changeMobileNumber)="onChangeMobileNumber($event)"></my-mobile>
+
+    <my-card
+            *ngIf="paymentData.paymentType == 2"
+            [cardNumber]="paymentData.cardNumber"
+            [cardMonth]="paymentData.cardMonth"
+            [cardYear]="paymentData.cardYear"
+            [cardCvv]="paymentData.cardCvv"
+            (changeCardNumber)="onChangeCardNumber($event)"
+            (changeCardMonth)="onChangeCardMonth($event)"
+            (changeCardYear)="onChangeCardYear($event)"
+            (changeCardCvv)="onChangeCardCvv($event)"></my-card>
+
+    <my-qiwi
+            *ngIf="paymentData.paymentType == 3"
+            [mobileNumber]="paymentData.mobileNumber"
+            (changeMobileNumber)="onChangeMobileNumber($event)"></my-qiwi>
+
+    <my-alfa
+            *ngIf="paymentData.paymentType == 4"
+            [alfa]="paymentData.alfa"
+            (changeAlfa)="onChangeAlfa($event)"></my-alfa>
+
+    <my-compay
+            *ngIf="paymentData.paymentType == 5"
+            [mobileNumber]="paymentData.mobileNumber"
+            (changeMobileNumber)="onChangeMobileNumber($event)"></my-compay>
+
+    <my-yandex
+            *ngIf="paymentData.paymentType == 6"
+            [yandex]="paymentData.yandex"
+            (changeYandex)="onChangeYandex($event)"></my-yandex>
+
+    <my-paypal
+            *ngIf="paymentData.paymentType == 7"
+            [payPal]="paymentData.payPal"
+            (changePayPal)="onChangePayPal($event)"></my-paypal>
+
+    <!-- payment__layout -->
+    <div class="payment__layout payment__layout_chk">
+
+        <!-- nice-chk -->
+        <div class="nice-checkbox">
+            <input type="checkbox" id="payment__save"
+                   [(ngModel)]="paymentData.savePaymentData"
+                   (change)="onChangeSave()">
+
+            <label for="payment__save">{{ content.chkLabel }}</label>
+        </div>
+        <!-- /nice-chk -->
+
+    </div>
+    <!-- /payment__layout -->
+    
+    <!-- payment__btns -->
+    <div class="payment__btns">
+
+        <!-- btn -->
+        <button class="btn payment__cancel"
+                (click)="onCancel()">{{ content.btnCancel }}</button>
+        <!-- /btn -->
+
+        <!-- btn -->
+        <button class="btn payment__ok"
+                (click)="onOk()">{{ content.btnOk }}</button>
+        <!-- /btn -->
+
+    </div>
+    <!-- /payment__btns -->
+
+</form>
+<!-- /payment -->

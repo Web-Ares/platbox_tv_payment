@@ -1,5 +1,11 @@
 <!-- mobile -->
 <form class="mobile">
+    
+    <!-- mobile__logo -->
+    <div class="mobile__logo">
+        <img src="app/img/qiwi.png" alt="qiwi">
+    </div>
+    <!-- /mobile__logo -->
 
     <!-- mobile__layout -->
     <div class="mobile__layout">
@@ -7,7 +13,7 @@
         <!-- label -->
         <label class="label" for="mobile__number">{{ content.inputLabel }}</label>
         <!-- /label -->
-        
+
         <!-- inputs -->
         <div class="inputs">
 
@@ -25,22 +31,6 @@
 
     </div>
     <!-- /mobile__layout -->
-
-    <!-- mobile__layout -->
-    <div class="mobile__layout">
-
-        <!-- mobile__list -->
-        <ul class="mobile__list">
-            <li *ngFor="#item of content.explanation">{{item}}</li>
-        </ul>
-        <!-- /mobile__list -->
-
-    </div>
-    <!-- /mobile__layout -->
-
-
-
-
-
+    
 </form>
 <!-- /mobile -->
