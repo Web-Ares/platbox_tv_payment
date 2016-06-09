@@ -4,9 +4,9 @@ import { PaymentType } from './../things/payment-type';
 
 
 import { TransactionComponent } from "./transaction.component";
-import { LicenseComponent } from "./license.component";
 import {AutopayComponent} from "./autopay.component";
 import {PaymentComponent} from "./payment.component";
+import {LicenseComponent} from "./license.component";
 
 @Component({
     selector: 'my-app',
@@ -34,6 +34,7 @@ export class AppComponent {
         savePaymentData: true,
         paymentType: 0
     };
+    
     autopayData = {
         minimum: '335 Рубликов',
         amount: '1000 Рублей'

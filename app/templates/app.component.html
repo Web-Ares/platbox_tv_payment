@@ -20,8 +20,8 @@
             *ngIf="!selectedPaymentType && paymentsVisibility"></my-payment-types>
 
     <my-payment
-            [paymentData]="paymentData"
             *ngIf="selectedPaymentType && selectedPaymentType.id && paymentsVisibility"
+            [paymentData]="paymentData"
             (cancel)="cancel($event)"
             (changeSavePaymentData)="changeSavePaymentData($event)"
             (changeMobileNumber)="changeMobileNumber($event)"
@@ -33,7 +33,6 @@
             (changeCardYear)="changeCardYear($event)"
             (changeCardCvv)="changeCardCvv($event)"
             (showLicense)="showLicense()"></my-payment>
-
 
     <my-license
             *ngIf="!paymentsVisibility && licenseVisibility"
@@ -57,3 +56,5 @@
 
 </div>
 <!-- /site -->
+
+<my-keyboard></my-keyboard>
