@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component, OnInit } from 'angular2/core';
 import { PaymentTypesComponent } from "./payment-type.component";
 import { PaymentType } from './../things/payment-type';
 
@@ -20,9 +20,10 @@ import {LicenseComponent} from "./license.component";
         AutopayComponent
     ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
     paymentData = {
-        amount: '1500',
+        amount: '',
         mobileNumber: '',
         cardNumber: '',
         cardMonth: '',
@@ -44,10 +45,14 @@ export class AppComponent {
     autoPayVisibility = false
     licenseVisibility = false;
     content = {
-        title: 'Пополнение кошелька',
-        text: `На ${this.paymentData.amount} Рубликов`
+        title: 'Пополнение кошелька'
     };
     selectedPaymentType: PaymentType;
+
+    ngOnInit() {
+        let data = window.document.getElementsByTagName('body')[0].dataset;
+        this.paymentData.amount = data.amount;
+    }
 
     cancel(){
         this.selectedPaymentType = undefined;
