@@ -16,7 +16,8 @@
                 <input type="text"
                        [(ngModel)]="cardNumber"
                        id="card__number"
-                       (keyup)="onChangeCardNumber()">
+                       (keyup)="onChangeCardNumber()"
+                       (click)="onClickInput('numberCard')">
             </div>
             <!-- /text-field -->
 
@@ -41,7 +42,8 @@
                 <input type="text"
                        [(ngModel)]="cardMonth"
                        id="card__month"
-                       (keyup)="onChangeCardMonth()">
+                       (keyup)="onChangeCardMonth()"
+                       (click)="onClickInput('validityPeriodMonth')">
             </div>
             <!-- /text-field -->
 
@@ -50,7 +52,8 @@
                 <input type="text"
                        [(ngModel)]="cardYear"
                        id="card__year"
-                       (keyup)="onChangeCardYear()">
+                       (keyup)="onChangeCardYear()"
+                       (click)="onClickInput('validityPeriodYear')">
             </div>
             <!-- /text-field -->
 
@@ -76,7 +79,8 @@
                        maxlength="3"
                        [(ngModel)]="cardCvv"
                        id="card__cvv"
-                       (keyup)="onChangeCardCvv()">
+                       (keyup)="onChangeCardCvv()"
+                       (click)="onClickInput('cvvCvc')">
             </div>
             <!-- /text-field -->
 

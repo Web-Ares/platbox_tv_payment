@@ -9,6 +9,7 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
 export class CompayComponent {
     @Input() mobileNumber: string;
     @Output() changeMobileNumber = new EventEmitter();
+    @Output() showKeyboard = new EventEmitter();
 
     content = {
         inputLabel: 'Номер телефона'
@@ -17,6 +18,10 @@ export class CompayComponent {
     onChangeMobileNumber(){
         this.changeMobileNumber.emit( this.mobileNumber );
 
+    }
+
+    onClickInput( type ){
+        this.showKeyboard.emit( type );
     }
 
 

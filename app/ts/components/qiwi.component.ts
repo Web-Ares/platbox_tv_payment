@@ -9,6 +9,7 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
 export class QiwiComponent {
     @Input() mobileNumber: string;
     @Output() changeMobileNumber = new EventEmitter();
+    @Output() showKeyboard = new EventEmitter();
 
     content = {
         inputLabel: 'Номер телефона'
@@ -16,7 +17,10 @@ export class QiwiComponent {
 
     onChangeMobileNumber(){
         this.changeMobileNumber.emit( this.mobileNumber );
+    }
 
+    onClickInput( type ){
+        this.showKeyboard.emit( type );
     }
 
 

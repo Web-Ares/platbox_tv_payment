@@ -32,7 +32,8 @@
             (changeCardMonth)="changeCardMonth($event)"
             (changeCardYear)="changeCardYear($event)"
             (changeCardCvv)="changeCardCvv($event)"
-            (showLicense)="showLicense()"></my-payment>
+            (showLicense)="showLicense()"
+            (showKeyboard)="showKeyboard($event)"></my-payment>
 
     <my-license
             *ngIf="!paymentsVisibility && licenseVisibility"
@@ -57,4 +58,5 @@
 </div>
 <!-- /site -->
 
-<my-keyboard></my-keyboard>
+<my-keyboard
+        *ngIf="keyboardVisibility"></my-keyboard>

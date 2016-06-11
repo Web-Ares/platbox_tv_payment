@@ -4,7 +4,8 @@
     <my-mobile
             *ngIf="paymentData.paymentType == 1"
             [mobileNumber]="paymentData.mobileNumber"
-            (changeMobileNumber)="onChangeMobileNumber($event)"></my-mobile>
+            (changeMobileNumber)="onChangeMobileNumber($event)"
+            (showKeyboard)="showKeyboardPayment($event)"></my-mobile>
 
     <my-card
             *ngIf="paymentData.paymentType == 2"
@@ -15,17 +16,20 @@
             (changeCardNumber)="onChangeCardNumber($event)"
             (changeCardMonth)="onChangeCardMonth($event)"
             (changeCardYear)="onChangeCardYear($event)"
-            (changeCardCvv)="onChangeCardCvv($event)"></my-card>
+            (changeCardCvv)="onChangeCardCvv($event)"
+            (showKeyboard)="showKeyboardPayment($event)"></my-card>
 
     <my-qiwi
             *ngIf="paymentData.paymentType == 3"
             [mobileNumber]="paymentData.mobileNumber"
-            (changeMobileNumber)="onChangeMobileNumber($event)"></my-qiwi>
+            (changeMobileNumber)="onChangeMobileNumber($event)"
+            (showKeyboard)="showKeyboardPayment($event)"></my-qiwi>
 
     <my-alfa
             *ngIf="paymentData.paymentType == 4"
             [alfa]="paymentData.alfa"
-            (changeAlfa)="onChangeAlfa($event)"></my-alfa>
+            (changeAlfa)="onChangeAlfa($event)"
+            ></my-alfa>
 
     <my-compay
             *ngIf="paymentData.paymentType == 5"

@@ -35,6 +35,7 @@ export class PaymentComponent {
     @Output() changeCardMonth = new EventEmitter();
     @Output() changeCardYear = new EventEmitter();
     @Output() changeCardCvv = new EventEmitter();
+    @Output() showKeyboard = new EventEmitter();
 
     content = {
         chkLabel: 'Сохранить данные для следующих платежей',
@@ -94,6 +95,11 @@ export class PaymentComponent {
     onOk() {
         this.showLicense.emit(null);
         return false;
+    }
+
+    showKeyboardPayment( type ) {
+        //console.log(type)
+        this.showKeyboard.emit( type );
     }
 
 }

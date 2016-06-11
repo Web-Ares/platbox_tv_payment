@@ -9,6 +9,7 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
 export class PayPalComponent {
     @Input() payPal: string;
     @Output() changePayPal = new EventEmitter();
+    @Output() showKeyboard = new EventEmitter();
 
     content = {
         inputLabel: 'Ваш e-mail'
@@ -17,6 +18,10 @@ export class PayPalComponent {
     onChangePayPal(){
         this.changePayPal.emit( this.payPal );
 
+    }
+
+    onClickInput( type ){
+        this.showKeyboard.emit( type );
     }
 
 

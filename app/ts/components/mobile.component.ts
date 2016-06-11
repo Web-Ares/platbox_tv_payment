@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, Input } from 'angular2/core';
 
+
 @Component({
     selector: 'my-mobile',
     templateUrl: 'app/templates/mobile.component.html',
@@ -9,6 +10,8 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
 export class MobileComponent {
     @Input() mobileNumber: string;
     @Output() changeMobileNumber = new EventEmitter();
+    @Output() showKeyboard = new EventEmitter();
+    @Output() showKeyboard1 = new EventEmitter();
 
     content = {
         inputLabel: 'Номер телефона',
@@ -21,7 +24,11 @@ export class MobileComponent {
 
     onChangeMobileNumber(){
         this.changeMobileNumber.emit( this.mobileNumber );
+    }
 
+    onClickInput( type ){
+        this.showKeyboard.emit( type );
+        this.showKeyboard1.emit( type );
     }
 
 

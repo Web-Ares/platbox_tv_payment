@@ -1,5 +1,57 @@
 <!-- keyboard -->
 <div class="keyboard">
 
+    <my-keyboard-full
+            *ngIf="keyboardVisibilityFull"></my-keyboard-full>
+
+    <my-keyboard-numerical
+            *ngIf="keyboardVisibilityNumerical"></my-keyboard-numerical>
+
+    <!-- keyboard__footer -->
+    <div class="keyboard__footer">
+
+        <div>
+
+            <!-- keyboard__delete -->
+            <a href="#" class="keyboard__delete"
+               (click)="onCancel($event)">Стереть</a>
+            <!-- /keyboard__delete -->
+
+            <!-- keyboard__caps -->
+            <a href="#" class="keyboard__caps">Большие буквы</a>
+            <!-- /keyboard__caps -->
+
+            <!-- keyboard__move -->
+            <div class="keyboard__move">
+
+                <!-- keyboard__caps -->
+                <a href="#" class="keyboard__move-left">LB</a>
+                <!-- /keyboard__caps -->
+
+                <!-- keyboard__caps -->
+                <a href="#" class="keyboard__move-right">RB</a>
+                <!-- /keyboard__caps -->
+
+                Перемещение по буквам слова
+
+            </div>
+            <!-- /keyboard__move -->
+
+        </div>
+        <div>
+
+            <!-- keyboard__save -->
+            <a href="#" class="keyboard__save">
+                <span>старт</span>
+                Сохранить
+            </a>
+            <!-- /keyboard__save -->
+
+        </div>
+
+
+    </div>
+    <!-- /keyboard__footer -->
+
 </div>
 <!-- /keyboard -->

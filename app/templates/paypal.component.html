@@ -22,7 +22,8 @@
                 <input type="email"
                        [(ngModel)]="payPal"
                        id="mobile__number"
-                       (keyup)="onChangePayPal()">
+                       (keyup)="onChangePayPal()"
+                       (click)="onClickInput('payPalEmail')">
             </div>
             <!-- /text-field -->
 

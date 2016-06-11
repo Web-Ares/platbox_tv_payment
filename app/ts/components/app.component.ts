@@ -1,4 +1,4 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit, Input } from 'angular2/core';
 import { PaymentTypesComponent } from "./payment-type.component";
 import { PaymentType } from './../things/payment-type';
 
@@ -7,6 +7,7 @@ import { TransactionComponent } from "./transaction.component";
 import {AutopayComponent} from "./autopay.component";
 import {PaymentComponent} from "./payment.component";
 import {LicenseComponent} from "./license.component";
+import {KeyboardComponent} from "./keyboard.component";
 
 @Component({
     selector: 'my-app',
@@ -17,7 +18,8 @@ import {LicenseComponent} from "./license.component";
         PaymentComponent,
         TransactionComponent,
         LicenseComponent,
-        AutopayComponent
+        AutopayComponent,
+        KeyboardComponent
     ]
 })
 export class AppComponent implements OnInit {
@@ -33,6 +35,7 @@ export class AppComponent implements OnInit {
         yandex: '',
         payPal: '',
         savePaymentData: true,
+        typeKeyboard: '',
         paymentType: 0
     };
     
@@ -42,12 +45,16 @@ export class AppComponent implements OnInit {
     };
     paymentsVisibility = true;
     transactionVisibility = false;
-    autoPayVisibility = false
+    keyboardVisibility = false;
+    keyboardType;
+    autoPayVisibility = false;
     licenseVisibility = false;
     content = {
         title: 'Пополнение кошелька'
     };
     selectedPaymentType: PaymentType;
+    keyboardVisibilityFull = true;
+    keyboardVisibilityNumerical = false;
 
     ngOnInit() {
         let data = window.document.getElementsByTagName('body')[0].dataset;
@@ -126,5 +133,22 @@ export class AppComponent implements OnInit {
         this.autopayData.amount = value;
     }
 
+    showKeyboard( type ){
+        this.keyboardVisibility = true;
+        this.paymentData.mobileNumber='fgg';
+        this.keyboardType = type;
+
+        if ( this.keyboardType == 'mobileNumber' ||
+            this.keyboardType == 'validityPeriodMonth' ||
+            this.keyboardType == 'validityPeriodYear' ||
+            this.keyboardType == 'cvvCvc'
+        ) {
+            console.log(this.keyboardType)
+            this.keyboardVisibilityFull = false;
+            this.keyboardVisibilityNumerical = true;
+
+        }
+
+    }
 
 }

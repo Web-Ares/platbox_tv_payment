@@ -15,6 +15,7 @@ export class CardComponent {
     @Output() changeCardMonth = new EventEmitter();
     @Output() changeCardYear = new EventEmitter();
     @Output() changeCardCvv = new EventEmitter();
+    @Output() showKeyboard = new EventEmitter();
 
     content = {
         numberLabel: 'Номер карты',
@@ -36,6 +37,10 @@ export class CardComponent {
 
     onChangeCardCvv(){
         this.changeCardCvv.emit( this.cardCvv );
+    }
+
+    onClickInput( type ){
+        this.showKeyboard.emit( type );
     }
 
 }

@@ -9,6 +9,7 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
 export class AlfaComponent {
     @Input() alfa: string;
     @Output() changeAlfa = new EventEmitter();
+    @Output() showKeyboard = new EventEmitter();
 
     content = {
         inputLabel: 'Ваш аккаунт'
@@ -17,6 +18,10 @@ export class AlfaComponent {
     onChangeAlfa(){
         this.changeAlfa.emit( this.alfa );
 
+    }
+
+    onClickInput( type ){
+        this.showKeyboard.emit( type );
     }
 
 
