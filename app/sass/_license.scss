@@ -1,25 +1,25 @@
 .license {
-  padding: 202px 15.88541667% 70px;
+  padding: 2.02em 15.88541667% .7em;
 
   .license__agreement {
     position: relative;
     @include title-font-2();
-    font-size: 30px;
+    font-size: .3em;
     color: $site__title-color;
-    line-height: 60px;
-    padding-left: 100px;
-    margin-bottom: 241px;
+    line-height: 2em;
+    padding-left: 3.33em;
+    margin-bottom: 8.03em;
 
     &:after{
       position: absolute;
-      top: 17px;
-      left: 3px;
+      top: .57em;
+      left: .1em;
       box-sizing: border-box;
-      border: 10px solid #fff;
+      border: .33em solid #fff;
       border-top: none;
       border-right: none;
-      width: 34px;
-      height: 21px;
+      width: 1.13em;
+      height: .7em;
       -webkit-transform: rotate(-45deg);
       transform: rotate(-45deg);
       content: '';
@@ -31,14 +31,14 @@
   }
 
   .license__text-btn {
-    width: 380px;
+    width: 15.83em;
     position: absolute;
     right: 0;
     top: 0;
   }
 
   .license__text {
-    padding: 169px 15.88541667% 70px;
+    padding: 1.69em 15.88541667% .7em;
     position: fixed;
     top: 0;
     left: 0;
@@ -52,18 +52,18 @@
 
     h2 {
       @include title-font();
-      font-size: 70px;
+      font-size: .7em;
       color: $site__title-color;
-      margin-bottom: 95px;
+      margin-bottom: 1.36em;
     }
 
     p {
       color: $license-color;
       @include title-font-2();
-      font-size: 25px;
-      line-height: 50px;
-      margin-bottom: 31px;
-      max-width: 1270px;
+      font-size: .25em;
+      line-height: 2em;
+      margin-bottom: 1.24em;
+      max-width: 50.8em;
     }
   }
 }

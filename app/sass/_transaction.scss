@@ -1,31 +1,31 @@
 .transaction{
-  min-height: 634px;
+  min-height: 6.34em;
   position: relative;
-  padding: 133px 15.88541667% 70px;
+  padding: 1.33em 15.88541667% .7em;
 
   .transaction__success {
-    padding-bottom: 1px;
+    padding-bottom: .01em;
   }
 
   .transaction__success-title {
     position: relative;
     @include title-font-2();
-    font-size: 35px;
+    font-size: .35em;
     color: $site__title-color;
-    line-height: 60px;
-    padding-left: 100px;
-    margin-bottom: 59px;
+    line-height: 1.71em;
+    padding-left: 2.86em;
+    margin-bottom: 1.69em;
 
     &:after{
       position: absolute;
-      top: 16px;
-      left: 3px;
+      top: .46em;
+      left: .09em;
       box-sizing: border-box;
-      border: 10px solid #fff;
+      border: .29em solid #fff;
       border-top: none;
       border-right: none;
-      width: 34px;
-      height: 21px;
+      width: .97em;
+      height: .6em;
       -webkit-transform: rotate(-45deg);
       transform: rotate(-45deg);
       content: '';
@@ -36,15 +36,15 @@
     overflow: hidden;
     @include title-font-2();
     color: $site__title-color;
-    font-size: 25px;
-    line-height: 60px;
-    margin-bottom: 131px;
+    font-size: .25em;
+    line-height: 2.4em;
+    margin-bottom: 5.24em;
 
     dt {
       float: left;
       clear: both;
       opacity: .3;
-      width: 329px;
+      width: 13.16em;
       font-weight: 400;
     }
     dd{
@@ -59,19 +59,19 @@
   .transaction__filed {
     color: $site__title-color;
     @include title-font-2();
-    padding-top: 42px;
+    padding-top: .42em;
   }
 
   .transaction__filed-title {
-    font-size: 35px;
+    font-size: .35em;
     font-weight: 400;
-    margin-bottom: 73px;
+    margin-bottom: 2.09em;
   }
 
   .transaction__filed-text {
-    font-size: 30px;
-    line-height: 60px;
-    margin-bottom: 160px;
+    font-size: .3em;
+    line-height: 2em;
+    margin-bottom: 5.33em;
   }
 
 }

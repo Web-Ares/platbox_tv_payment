@@ -5,7 +5,7 @@
   }
 
   .mobile__logo {
-    margin-bottom: 60px;
+    margin-bottom: .6em;
 
     img {
       display: block;
@@ -13,24 +13,24 @@
   }
 
   .mobile__list {
-    padding-top: 52px;
+    padding-top: .52em;
 
     li {
       @include title-font-2();
-      font-size: 25px;
+      font-size: .25em;
       color: $site__title-color;
-      padding-left: 83px;
+      padding-left: 3.32em;
       position: relative;
-      line-height: 40px;
-      width: 1200px;
-      margin-bottom: 20px;
+      line-height: 1.6em;
+      width: 48em;
+      margin-bottom: .8em;
 
       &:before {
         position: absolute;
-        top: 13px;
-        left: 20px;
-        width: 10px;
-        height: 10px;
+        top: .52em;
+        left: .8em;
+        width: .4em;
+        height: .4em;
         background: $site__title-color;
         border-radius: 50%;
         content: '';

@@ -28,11 +28,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    padding-left: 83px;
+    height: 2em;
+    padding-left: 3.32em;
     cursor: pointer;
     @include title-font-2();
-    font-size: 25px;
+    font-size: .25em;
     color: $site__title-color;
     vertical-align: middle;
 
@@ -43,24 +43,24 @@
     }
 
     &:after {
-      top: 2px;
+      top: .08em;
       box-sizing: border-box;
       left: 0;
-      width: 50px;
-      height: 50px;
-      border: 3px solid $nice-checkbox-after-color;
+      width: 2em;
+      height: 2em;
+      border: .12em solid $nice-checkbox-after-color;
     }
 
     &:before {
       display: none;
-      top: 16px;
-      left: 12px;
+      top: 0.64em;
+      left: .48em;
       box-sizing: border-box;
-      border: 8px solid $site__title-color;
+      border: 0.32em solid $site__title-color;
       border-top: none;
       border-right: none;
-      width: 26px;
-      height: 16px;
+      width: 1.04em;
+      height: 0.64em;
       transform: rotate( -45deg );
       content: '';
     }
