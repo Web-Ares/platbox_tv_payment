@@ -121,9 +121,15 @@ export class AppComponent implements OnInit {
     }
 
     setSize(){
-        let site = window.document.getElementsByClassName( 'site' )[0];
+        let site = window.document.getElementsByClassName( 'site' )[0],
+            keyboard = window.document.getElementsByClassName( 'keyboard' )[0],
+            newSize = ( 100 * ( window.innerHeight / 1080 ) ) + 'px';
 
-        site.style.fontSize = ( 100 * ( site.clientHeight/ 1080 ) ) + 'px';
+        site.style.fontSize = newSize;
+        
+        if( keyboard ){
+            keyboard.style.fontSize = newSize;
+        }
     }
 
     showLicense(){
@@ -167,6 +173,8 @@ export class AppComponent implements OnInit {
             this.keyboardVisibilityFull = true;
             this.keyboardVisibilityNumerical = false;
         }
+
+
 
     }
 
