@@ -98,7 +98,6 @@ export class PaymentComponent {
     }
 
     showKeyboardPayment( type ) {
-        //console.log(type)
         this.showKeyboard.emit( type );
     }
 

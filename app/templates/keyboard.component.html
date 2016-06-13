@@ -1,11 +1,15 @@
 <!-- keyboard -->
 <div class="keyboard">
 
-    <my-keyboard-full
-            *ngIf="keyboardVisibilityFull"></my-keyboard-full>
+    <my-keyboard-full *ngIf="keyboardVisibilityFull"
+                      [capsOn]="capsOn"
+                      (symbolType)="onKeyClick($event)"
+                      (spaceType)="onKeySpaceClick($event)"></my-keyboard-full>
 
-    <my-keyboard-numerical
-            *ngIf="keyboardVisibilityNumerical"></my-keyboard-numerical>
+
+    <my-keyboard-numerical *ngIf="keyboardVisibilityNumerical"
+                           (symbolType)="onKeyClick($event)"></my-keyboard-numerical>
+
 
     <!-- keyboard__footer -->
     <div class="keyboard__footer">
@@ -14,11 +18,18 @@
 
             <!-- keyboard__delete -->
             <a href="#" class="keyboard__delete"
-               (click)="onCancel($event)">Стереть</a>
+               (click)="onCancel($event)">
+                <span>X</span>
+                {{ btnFooterText.wipeOff }}
+            </a>
             <!-- /keyboard__delete -->
 
             <!-- keyboard__caps -->
-            <a href="#" class="keyboard__caps">Большие буквы</a>
+            <a href="#" class="keyboard__caps"
+               (click)="onCapsClick()">
+                <span>LT</span>
+                {{ btnFooterText.caps }}
+            </a>
             <!-- /keyboard__caps -->
 
             <!-- keyboard__move -->
@@ -32,7 +43,7 @@
                 <a href="#" class="keyboard__move-right">RB</a>
                 <!-- /keyboard__caps -->
 
-                Перемещение по буквам слова
+                {{ btnFooterText.move }}
 
             </div>
             <!-- /keyboard__move -->
@@ -43,7 +54,7 @@
             <!-- keyboard__save -->
             <a href="#" class="keyboard__save">
                 <span>старт</span>
-                Сохранить
+                {{ btnFooterText.save }}
             </a>
             <!-- /keyboard__save -->
 

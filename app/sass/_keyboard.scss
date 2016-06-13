@@ -10,6 +10,10 @@
   line-height: 30px;
   color: rgba( 255,255,255,0.32 );
 }
+.uppercase .keyboard__key {
+  //text-decoration: underline;
+  text-transform: uppercase !important;
+}
 .keyboard__items {
   @include flexbox();
   @include flex-wrap( wrap );
@@ -19,7 +23,7 @@
   width: 100%;
   height: calc( 100% - 35% );
   max-width: 870px;
-  padding: 0 50px;
+  padding: 53px 50px 0;
   margin: 0 auto;
 
   >div {
@@ -37,6 +41,7 @@
   @include align-items( center );
   @include justify-content( flex-start );
   width: 80%;
+  margin: 0 0 0 -29px;
 }
 .keyboard__key {
   position: relative;
@@ -44,14 +49,17 @@
   line-height: 35px;
   width: 60px;
   height: 60px;
-  padding: 14px 12px;
+  padding: 12px;
   text-align: center;
-  text-transform: uppercase;
   cursor: default;
+  background: none;
+  border: none;
+  color: rgba( 255,255,255,0.32 );
 
   &.active {
     color: #000;
     background: #fff;
+    box-shadow: 0 0 7px 2px rgba(255,255,255,0.3);
   }
 }
 .keyboard__key_space {
@@ -59,10 +67,12 @@
   width: auto;
   height: auto;
   text-transform: none;
-  padding: 0 6px 3px;
+  margin: 0 0 0 18px;
+  padding: 0 7px 3px;
   font-size: 25px;
   line-height: 25px;
   border-bottom: 2px solid rgba(255,255,255,0.32);
+  letter-spacing: 2px;
 
   &:after,
   &:before {
@@ -70,7 +80,7 @@
     left: 0;
     bottom: 0;
     width: 2px;
-    height: 10px;
+    height: 4px;
     background: rgba( 255,255,255,0.32 );
     content: ''
   }
@@ -86,10 +96,6 @@
   line-height: 30px;
   text-align: right;
 
-  div{
-    margin-top: 10px;
-  }
-
   a {
     display: inline-block;
     vertical-align: top;
@@ -101,7 +107,7 @@
   }
 }
 .keyboard__types-item {
-  margin: 0 0 5px;
+  margin: 26px 0 18px;
 }
 .keyboard__footer {
   position: absolute;
@@ -109,6 +115,7 @@
   left: 0;
   width: 100%;
   height: 35%;
+  padding: 9px 4.5% 0;
 
   @include flexbox();
   @include flex-wrap( wrap );
@@ -121,12 +128,13 @@
   vertical-align: top;
   position: relative;
   padding-left: 80px;
+  margin: 0 38px 0 0;
   color: rgba( 255,255,255,0.32 );
 
-  &:after {
+  span {
     position: absolute;
+    top: 50%;
     left: 0;
-    top: 0;
     padding: 13px 11px;
     width: 60px;
     height: 60px;
@@ -136,9 +144,10 @@
     line-height: 35px;
     color: #fff;
     text-align: center;
-    content: 'X';
     box-sizing: border-box;
     text-transform: uppercase;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }
 .keyboard__caps {
@@ -146,61 +155,77 @@
   vertical-align: top;
   position: relative;
   padding-left: 80px;
+  margin: 0 46px 0 0;
   color: rgba( 255,255,255,0.32 );
 
-  &:after {
+  span {
     position: absolute;
+    top: 50%;
     left: 0;
-    top: 0;
-    padding: 13px 11px;
-    width: 60px;
-    height: 60px;
-    border: 2px solid #213949;
+    padding: 19px 11px;
+    width: 56px;
+    height: 70px;
+    background: url("app/img/caps.png") no-repeat left top;
+    background-size: 56px 70px;
     font-size: 35px;
     line-height: 35px;
     color: #fff;
     text-align: center;
-    content: 'LT';
     box-sizing: border-box;
     text-transform: uppercase;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }
 .keyboard__move {
   display: inline-block;
   vertical-align: top;
+  position: relative;
+  padding-left: 194px;
 
   a {
-    display: inline-block;
-    vertical-align: top;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 80px;
+    height: 40px;
     font-size: 35px;
     line-height: 35px;
     color: #fff;
     border: 2px solid #213949;
-    border-radius: 50px 0 0 0;
-    padding: 2px 9px 0 25px;
+    border-radius: 27px 0 0 0;
+    padding: 2px 12px 0 22px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }
 .keyboard__move .keyboard__move-left {
 
 }
 .keyboard__move .keyboard__move-right {
-  border-radius: 0 50px 0 0;
-  padding: 2px 25px 0 9px;
+  left: 90px;
+  border-radius: 0 27px 0 0;
+  padding: 2px 22px 0 12px;
 }
 .keyboard__save {
   display: inline-block;
   vertical-align: top;
+  position: relative;
+  padding-left: 70px;
   color: rgba( 255,255,255,0.32 );
 
   span {
-    display: inline-block;
-    vertical-align: top;
-    padding-top: 44px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    padding-top: 39px;
     min-width: 44px;
     color: #fff;
     font-size: 16px;
     line-height: 16px;
     background: url("app/img/save.png") no-repeat left top;
     background-size: 44px 36px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }

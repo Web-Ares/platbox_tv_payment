@@ -55,6 +55,8 @@ export class AppComponent implements OnInit {
     selectedPaymentType: PaymentType;
     keyboardVisibilityFull = true;
     keyboardVisibilityNumerical = false;
+    symbolType;
+    spaceType;
 
     ngOnInit() {
         let data = window.document.getElementsByTagName('body')[0].dataset;
@@ -67,6 +69,7 @@ export class AppComponent implements OnInit {
         this.transactionVisibility = false;
         this.autoPayVisibility = false;
         this.paymentsVisibility = true;
+        this.keyboardVisibility = false;
     }
 
     changeCardNumber( cardNumber ){
@@ -135,20 +138,49 @@ export class AppComponent implements OnInit {
 
     showKeyboard( type ){
         this.keyboardVisibility = true;
-        this.paymentData.mobileNumber='fgg';
+
         this.keyboardType = type;
 
         if ( this.keyboardType == 'mobileNumber' ||
             this.keyboardType == 'validityPeriodMonth' ||
             this.keyboardType == 'validityPeriodYear' ||
-            this.keyboardType == 'cvvCvc'
-        ) {
-            console.log(this.keyboardType)
+            this.keyboardType == 'cvvCvc') {
+
             this.keyboardVisibilityFull = false;
             this.keyboardVisibilityNumerical = true;
 
+        } else {
+            this.keyboardVisibilityFull = true;
+            this.keyboardVisibilityNumerical = false;
         }
 
+    }
+
+    onKeyClick( type ) {
+        var target = type.target || type.srcElement || type.currentTarget,
+            value = target.innerText;
+
+        if( this.keyboardType  == 'mobileNumber' ) {
+            this.paymentData.mobileNumber = value;
+        } else if( this.keyboardType  == 'alfaAccount' ) {
+            this.paymentData.alfa = value;
+        } else if( this.keyboardType  == 'numberCard' ) {
+            this.paymentData.cardNumber = value;
+        } else if( this.keyboardType  == 'validityPeriodMonth' ) {
+            this.paymentData.cardMonth = value;
+        } else if( this.keyboardType  == 'validityPeriodYear' ) {
+            this.paymentData.cardYear = value;
+        } else if( this.keyboardType  == 'cvvCvc' ) {
+            this.paymentData.cardCvv = value;
+        } else if( this.keyboardType  == 'payPalEmail' ) {
+            this.paymentData.payPal = value;
+        } else if( this.keyboardType  == 'yandexEmailOrNumber' ) {
+            this.paymentData.yandex = value;
+        }
+    }
+
+    onKeySpaceClick( type ) {
+        console.log(454545)
     }
 
 }

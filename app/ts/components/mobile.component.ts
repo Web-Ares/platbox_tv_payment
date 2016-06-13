@@ -11,7 +11,6 @@ export class MobileComponent {
     @Input() mobileNumber: string;
     @Output() changeMobileNumber = new EventEmitter();
     @Output() showKeyboard = new EventEmitter();
-    @Output() showKeyboard1 = new EventEmitter();
 
     content = {
         inputLabel: 'Номер телефона',
@@ -28,7 +27,6 @@ export class MobileComponent {
 
     onClickInput( type ){
         this.showKeyboard.emit( type );
-        this.showKeyboard1.emit( type );
     }
 
 

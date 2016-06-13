@@ -29,22 +29,25 @@
             *ngIf="paymentData.paymentType == 4"
             [alfa]="paymentData.alfa"
             (changeAlfa)="onChangeAlfa($event)"
-            ></my-alfa>
+            (showKeyboard)="showKeyboardPayment($event)"></my-alfa>
 
     <my-compay
             *ngIf="paymentData.paymentType == 5"
             [mobileNumber]="paymentData.mobileNumber"
-            (changeMobileNumber)="onChangeMobileNumber($event)"></my-compay>
+            (changeMobileNumber)="onChangeMobileNumber($event)"
+            (showKeyboard)="showKeyboardPayment($event)"></my-compay>
 
     <my-yandex
             *ngIf="paymentData.paymentType == 6"
             [yandex]="paymentData.yandex"
-            (changeYandex)="onChangeYandex($event)"></my-yandex>
+            (changeYandex)="onChangeYandex($event)"
+            (showKeyboard)="showKeyboardPayment($event)"></my-yandex>
 
     <my-paypal
             *ngIf="paymentData.paymentType == 7"
             [payPal]="paymentData.payPal"
-            (changePayPal)="onChangePayPal($event)"></my-paypal>
+            (changePayPal)="onChangePayPal($event)"
+            (showKeyboard)="showKeyboardPayment($event)"></my-paypal>
 
     <!-- payment__layout -->
     <div class="payment__layout payment__layout_chk">

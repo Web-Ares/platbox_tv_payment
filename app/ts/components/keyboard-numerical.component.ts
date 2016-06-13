@@ -8,4 +8,10 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
 
 export class KeyboardNumericalComponent {
 
+    @Output() symbolType = new EventEmitter();
+
+    onSymbolClick(type) {
+        this.symbolType.emit( type );
+    }
+
 }

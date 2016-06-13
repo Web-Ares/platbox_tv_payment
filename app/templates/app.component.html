@@ -1,6 +1,6 @@
 
 <!-- site -->
-<div class="site">
+<div class="site" [class.minimize]="keyboardVisibility">
 
     <!-- site__header -->
     <div class="site__header">
@@ -59,4 +59,8 @@
 <!-- /site -->
 
 <my-keyboard
-        *ngIf="keyboardVisibility"></my-keyboard>
+        *ngIf="keyboardVisibility"
+        [keyboardVisibilityFull]="keyboardVisibilityFull"
+        [keyboardVisibilityNumerical]="keyboardVisibilityNumerical"
+        (symbolType)="onKeyClick($event)"
+        (spaceType)="onKeySpaceClick($event)"></my-keyboard>
