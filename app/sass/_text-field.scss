@@ -1,8 +1,8 @@
 .text-field {
   display: inline-block;
   position: relative;
-  width: 770px;
-  height: 80px;
+  width: 7.7em;
+  height: .8em;
 
   input {
     position: absolute;
@@ -13,11 +13,11 @@
     border: none;
     background: $text-field-back;
     color: $text-field-color;
-    font-size: 25px;
-    padding: 0 25px;
+    font-size: .25em;
+    padding: 0 1em;
   }
 
   &.text-field_small {
-    width: 380px;
+    width: 3.8em;
   }
 }

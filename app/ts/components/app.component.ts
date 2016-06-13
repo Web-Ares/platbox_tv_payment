@@ -56,9 +56,14 @@ export class AppComponent implements OnInit {
     keyboardVisibilityFull = true;
     keyboardVisibilityNumerical = false;
 
+    appResize(){
+        this.setSize();
+    }
+
     ngOnInit() {
         let data = window.document.getElementsByTagName('body')[0].dataset;
         this.paymentData.amount = data.amount;
+        this.setSize();
     }
 
     cancel(){
@@ -108,6 +113,12 @@ export class AppComponent implements OnInit {
     setSelectedPaymentType( paymentType ){
         this.selectedPaymentType = paymentType;
         this.paymentData.paymentType = this.selectedPaymentType.id;
+    }
+
+    setSize(){
+        let site = window.document.getElementsByClassName( 'site' )[0];
+
+        site.style.fontSize = ( 100 * ( site.clientHeight/ 1080 ) ) + 'px';
     }
 
     showLicense(){

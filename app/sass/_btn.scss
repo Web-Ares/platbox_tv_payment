@@ -1,17 +1,17 @@
 .btn {
-  border: 3px solid $btn-border;
-  height: 70px;
-  width: 300px;
-  padding: 0 10px;
+  border: .125em solid $btn-border;
+  height: 2.92em;
+  width: 12.5em;
+  padding: 0 .42em;
   color: $btn-color;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: .24em;
   text-transform: uppercase;
   background: $btn-back;
-  margin-right: 30px;
+  margin-right: 1.25em;
   @include title-font-3();
 
   &:hover {
