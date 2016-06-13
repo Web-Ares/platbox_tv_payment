@@ -1,6 +1,6 @@
 
 <!-- site -->
-<div class="site" (window:resize)="appResize()">
+<div class="site" (window:resize)="appResize()" [class.minimize]="keyboardVisibility">
 
     <!-- site__header -->
     <div class="site__header">
