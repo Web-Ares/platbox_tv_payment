@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from 'angular2/core';
+import { Component, Output, EventEmitter, Input, OnChanges } from 'angular2/core';
 
 import { KeyboardFullComponent } from "./keyboard-full.component";
 import {KeyboardNumericalComponent} from "./keyboard-numerical.component";
@@ -14,7 +14,7 @@ import {KeyboardNumericalComponent} from "./keyboard-numerical.component";
 
 })
 
-export class KeyboardComponent{
+export class KeyboardComponent implements OnChanges{
     @Input() keyboardVisibilityFull: boolean;
     @Input() keyboardVisibilityNumerical: boolean;
 
@@ -22,6 +22,7 @@ export class KeyboardComponent{
     @Output() spaceType = new EventEmitter();
     @Output() clearElem = new EventEmitter();
     @Output() saveText = new EventEmitter();
+    @Output() setSize = new EventEmitter();
 
     capsOn = false;
 
@@ -62,6 +63,10 @@ export class KeyboardComponent{
 
     onSave() {
         this.saveText.emit( null );
+    }
+
+    ngOnChanges(){
+        this.setSize.emit( null );
     }
 
 }

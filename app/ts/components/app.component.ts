@@ -175,7 +175,6 @@ export class AppComponent implements OnInit {
         }
 
 
-
     }
 
     onKeyClick( type ) {
