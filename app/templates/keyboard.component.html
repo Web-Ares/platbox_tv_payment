@@ -18,14 +18,15 @@
 
             <!-- keyboard__delete -->
             <a href="#" class="keyboard__delete"
-               (click)="onCancel($event)">
+               (click)="onClear()">
                 <span>X</span>
                 {{ btnFooterText.wipeOff }}
             </a>
             <!-- /keyboard__delete -->
 
             <!-- keyboard__caps -->
-            <a href="#" class="keyboard__caps"
+            <a *ngIf="keyboardVisibilityFull"
+               href="#" class="keyboard__caps"
                (click)="onCapsClick()">
                 <span>LT</span>
                 {{ btnFooterText.caps }}
@@ -52,7 +53,8 @@
         <div>
 
             <!-- keyboard__save -->
-            <a href="#" class="keyboard__save">
+            <a href="#" class="keyboard__save"
+               (click)="onSave()">
                 <span>старт</span>
                 {{ btnFooterText.save }}
             </a>

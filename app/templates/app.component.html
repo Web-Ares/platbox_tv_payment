@@ -63,4 +63,6 @@
         [keyboardVisibilityFull]="keyboardVisibilityFull"
         [keyboardVisibilityNumerical]="keyboardVisibilityNumerical"
         (symbolType)="onKeyClick($event)"
-        (spaceType)="onKeySpaceClick($event)"></my-keyboard>
+        (spaceType)="onKeySpaceClick()"
+        (clearElem)="onClearSymbol()"
+        (saveText)="onSaveSymbols()"></my-keyboard>

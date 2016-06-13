@@ -20,6 +20,8 @@ export class KeyboardComponent{
 
     @Output() symbolType = new EventEmitter();
     @Output() spaceType = new EventEmitter();
+    @Output() clearElem = new EventEmitter();
+    @Output() saveText = new EventEmitter();
 
     capsOn = false;
 
@@ -50,8 +52,16 @@ export class KeyboardComponent{
         this.symbolType.emit( type );
     }
 
-    onKeySpaceClick( type ) {
-        this.spaceType.emit( type );
+    onKeySpaceClick() {
+        this.spaceType.emit( null );
+    }
+
+    onClear() {
+        this.clearElem.emit( null );
+    }
+
+    onSave() {
+        this.saveText.emit( null );
     }
 
 }

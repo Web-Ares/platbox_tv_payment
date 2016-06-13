@@ -15,8 +15,4 @@ export class KeyboardFullSymbolComponent {
         this.symbolType.emit( type );
     }
 
-    onSymbolSpaceClick(type) {
-        this.spaceType.emit( type );
-    }
-
 }

@@ -57,6 +57,8 @@ export class AppComponent implements OnInit {
     keyboardVisibilityNumerical = false;
     symbolType;
     spaceType;
+    clearElem;
+    saveText;
 
     appResize(){
         this.setSize();
@@ -153,6 +155,7 @@ export class AppComponent implements OnInit {
         this.keyboardType = type;
 
         if ( this.keyboardType == 'mobileNumber' ||
+            this.keyboardType == 'numberCard' ||
             this.keyboardType == 'validityPeriodMonth' ||
             this.keyboardType == 'validityPeriodYear' ||
             this.keyboardType == 'cvvCvc') {
@@ -172,26 +175,62 @@ export class AppComponent implements OnInit {
             value = target.innerText;
 
         if( this.keyboardType  == 'mobileNumber' ) {
-            this.paymentData.mobileNumber = value;
+            this.paymentData.mobileNumber = this.paymentData.mobileNumber + value;
         } else if( this.keyboardType  == 'alfaAccount' ) {
-            this.paymentData.alfa = value;
+            this.paymentData.alfa = this.paymentData.alfa + value;
         } else if( this.keyboardType  == 'numberCard' ) {
-            this.paymentData.cardNumber = value;
+            this.paymentData.cardNumber = this.paymentData.cardNumber + value;
         } else if( this.keyboardType  == 'validityPeriodMonth' ) {
-            this.paymentData.cardMonth = value;
+            this.paymentData.cardMonth = this.paymentData.cardMonth + value;
         } else if( this.keyboardType  == 'validityPeriodYear' ) {
-            this.paymentData.cardYear = value;
+            this.paymentData.cardYear = this.paymentData.cardYear + value;
         } else if( this.keyboardType  == 'cvvCvc' ) {
-            this.paymentData.cardCvv = value;
+            this.paymentData.cardCvv = this.paymentData.cardCvv + value;
         } else if( this.keyboardType  == 'payPalEmail' ) {
-            this.paymentData.payPal = value;
+            this.paymentData.payPal = this.paymentData.payPal + value;
         } else if( this.keyboardType  == 'yandexEmailOrNumber' ) {
-            this.paymentData.yandex = value;
+            this.paymentData.yandex = this.paymentData.yandex + value;
         }
     }
 
-    onKeySpaceClick( type ) {
-        console.log(454545)
+    onKeySpaceClick() {
+
+        if( this.keyboardType  == 'alfaAccount' ) {
+            this.paymentData.alfa = this.paymentData.alfa + ' ';
+        } else if( this.keyboardType  == 'payPalEmail' ) {
+            this.paymentData.payPal = this.paymentData.payPal + ' ';
+        } else if( this.keyboardType  == 'yandexEmailOrNumber' ) {
+            this.paymentData.yandex = this.paymentData.yandex + ' ';
+        }
+
+    }
+
+    onClearSymbol() {
+        if( this.keyboardType  == 'mobileNumber' ) {
+            this.paymentData.mobileNumber = this.paymentData.mobileNumber.substring(0, this.paymentData.mobileNumber.length - 1);
+        } else if( this.keyboardType  == 'alfaAccount' ) {
+            this.paymentData.alfa = this.paymentData.alfa.substring(0, this.paymentData.alfa.length - 1);
+        } else if( this.keyboardType  == 'numberCard' ) {
+            this.paymentData.cardNumber = this.paymentData.cardNumber.substring(0, this.paymentData.cardNumber.length - 1);
+        } else if( this.keyboardType  == 'validityPeriodMonth' ) {
+            this.paymentData.cardMonth = this.paymentData.cardMonth.substring(0, this.paymentData.cardMonth.length - 1);
+        } else if( this.keyboardType  == 'validityPeriodYear' ) {
+            this.paymentData.cardYear = this.paymentData.cardYear.substring(0, this.paymentData.cardYear.length - 1);
+        } else if( this.keyboardType  == 'cvvCvc' ) {
+            this.paymentData.cardCvv = this.paymentData.cardCvv.substring(0, this.paymentData.cardCvv.length - 1);
+        } else if( this.keyboardType  == 'payPalEmail' ) {
+            this.paymentData.payPal = this.paymentData.payPal.substring(0, this.paymentData.payPal.length - 1);
+        } else if( this.keyboardType  == 'yandexEmailOrNumber' ) {
+            this.paymentData.yandex = this.paymentData.yandex.substring(0, this.paymentData.yandex.length - 1);
+        }
+
+        return false;
+    }
+
+    onSaveSymbols () {
+        this.keyboardVisibility = false;
+
+        return false;
     }
 
 }

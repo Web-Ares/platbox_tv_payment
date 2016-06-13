@@ -63,8 +63,8 @@ export class KeyboardFullComponent {
         this.symbolType.emit( type );
     }
 
-    onSymbolSpaceClick(type) {
-        this.spaceType.emit( type );
+    onSymbolSpaceClick() {
+        this.spaceType.emit( null );
     }
 
 }
