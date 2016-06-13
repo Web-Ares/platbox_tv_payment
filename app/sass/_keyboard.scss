@@ -34,6 +34,13 @@
     @include justify-content( center );
   }
 }
+.keyboard__numerical {
+  max-width: 330px;
+  text-align: right;
+}
+.keyboard__numerical .keyboard__screen {
+  @include justify-content( flex-end );
+}
 .keyboard__screen {
   @include flexbox();
   @include flex-wrap( wrap );
