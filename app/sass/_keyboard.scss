@@ -11,8 +11,7 @@
   color: rgba( 255,255,255,0.32 );
 }
 .uppercase .keyboard__key {
-  //text-decoration: underline;
-  text-transform: uppercase !important;
+  text-transform: uppercase;
 }
 .keyboard__items {
   @include flexbox();
@@ -75,7 +74,7 @@
   position: relative;
   width: auto;
   height: auto;
-  text-transform: none;
+  text-transform: none !important;
   margin: 0 0 0 .72em;
   padding: 0 .28em .12em;
 
