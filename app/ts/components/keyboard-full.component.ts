@@ -25,35 +25,39 @@ export class KeyboardFullComponent {
     keyboardFullEn = true;
     keyboardFullSymbol = false;
     typeClassActive = false;
+    firstActive = true;
 
     onKeyboardFullTypeClick( type ) {
 
         if( type == 'ru' ) {
 
+            this.firstActive = true;
             this.keyboardFullRu = true;
             this.keyboardFullEn = false;
             this.keyboardFullSymbol = false;
 
         } else if(type == 'en' ) {
 
+            this.firstActive = true;
             this.keyboardFullRu = false;
             this.keyboardFullEn = true;
             this.keyboardFullSymbol = false;
 
         } else if(type == 'symbol' ) {
 
+            this.firstActive = true;
             this.keyboardFullRu = false;
             this.keyboardFullEn = false;
             this.keyboardFullSymbol = true;
-
         }
 
         if( this.typeClassActive ) {
+
             this.typeClassActive = false;
         } else if( !this.typeClassActive ) {
             this.typeClassActive = true;
-        }
 
+        }
 
         return false;
 

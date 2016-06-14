@@ -3,8 +3,7 @@ import { Directive, ElementRef, Input } from 'angular2/core';
 @Directive({
     selector: '[addClassActive]',
     host: {
-        '(mouseenter)': 'onMouseEnter()',
-        '(mouseleave)': 'onMouseLeave()'
+        '(mouseenter)': 'onMouseEnter()'
     }
 })
 
@@ -12,25 +11,18 @@ export class AddClassDirective {
 
     private newClass = 'active';
     private elem: HTMLElement;
-    e;
-    firstActive = true;
 
     constructor( elem: ElementRef ) {
         this.elem = elem.nativeElement;
     }
 
     @Input() set defaultColor( colorName: string ){
-
         this.newClass = colorName || this.newClass;
-
     }
 
     @Input( 'addClassActive' ) highlightColor: string;
 
     removeClass( item, className ){
-
-        console.log(item)
-        console.log(className)
 
         let classNameStart = item.className.indexOf( className );
 
@@ -70,17 +62,13 @@ export class AddClassDirective {
 
             let elems = this.elem.parentElement.getElementsByClassName('active');
 
-            for( var i = 0;i <= elems.length; i++ ) {
+            for( let i = 0;i < elems.length; i++ ) {
                 this.removeClass( elems[ 0 ], 'active' );
             }
 
         }
 
         this.addClass( this.elem, 'active' );
-    }
-
-    onMouseLeave() {
-        //this.removeClass( this.elem, this.highlightColor || this.newClass );
     }
 
 }

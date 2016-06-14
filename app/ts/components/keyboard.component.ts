@@ -23,8 +23,10 @@ export class KeyboardComponent implements OnChanges{
     @Output() clearElem = new EventEmitter();
     @Output() saveText = new EventEmitter();
     @Output() setSize = new EventEmitter();
+    @Output() printKey = new EventEmitter();
 
     capsOn = false;
+    firstActive = true;
 
     btnFooterText = {
         wipeOff: 'Стереть',
@@ -33,6 +35,44 @@ export class KeyboardComponent implements OnChanges{
         save: 'Сохранить',
 
     };
+
+    hasClass( elem, classNme ) {
+        return elem.className.indexOf( classNme ) >= 0;
+    }
+
+    removeClass( item, className ){
+
+        let classNameStart = item.className.indexOf( className );
+
+        if( classNameStart > 0 ){
+            if( item.className == className ){
+                item.className = '';
+            } else {
+                let classesArr = item.className.split( className );
+
+                if( classesArr[0].trim() == '' || classesArr[1].trim() == '' ) {
+                    item.className = classesArr[0].trim() + ' ' + classesArr[1].trim();
+                } else {
+                    item.className = classesArr[0].trim() + ' ' + classesArr[1].trim();
+                }
+
+            }
+        }
+
+    }
+
+    addClass( item, className ){
+
+        if( item.className.indexOf( className ) < 0 ){
+
+            if( item.className.length ){
+                item.className = item.className + ' ' + className;
+            } else {
+                item.className = className;
+            }
+        }
+
+    }
 
     onCapsClick() {
         if( this.capsOn ) {
@@ -56,12 +96,60 @@ export class KeyboardComponent implements OnChanges{
         this.clearElem.emit( null );
     }
 
+    onStart() {
+        this.printKey.emit( null );
+    }
+
     onSave() {
         this.saveText.emit( null );
     }
 
     ngOnChanges(){
         this.setSize.emit( null );
+    }
+
+    onMoveRight() {
+
+        let elems = document.getElementsByClassName('keyboard__key'),
+            index = 0;
+
+        for( let i = 0; i < elems.length; i++ ) {
+            if( this.hasClass( elems[i], 'active' ) ) {
+                index = i;
+
+            }
+        }
+
+        this.removeClass( elems[ index ], 'active' );
+
+        if( ( index + 1 ) >= elems.length ) {
+            index = -1;
+        }
+
+        this.addClass( elems[ index + 1 ], 'active' );
+
+    }
+
+    onMoveLeft() {
+
+        let elems = document.getElementsByClassName('keyboard__key'),
+            index = 0;
+
+        for( let i = 0; i < elems.length; i++ ) {
+            if( this.hasClass( elems[i], 'active' ) ) {
+                index = i;
+
+            }
+        }
+
+        this.removeClass( elems[ index ], 'active' );
+
+        if( index == 0 ) {
+            index = elems.length;
+        }
+
+        this.addClass( elems[ index - 1 ], 'active' );
+
     }
 
 }
