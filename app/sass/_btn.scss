@@ -12,6 +12,7 @@
   text-transform: uppercase;
   background: $btn-back;
   margin-right: 1.25em;
+  text-align: center;
   @include title-font-3();
 
   &:hover {

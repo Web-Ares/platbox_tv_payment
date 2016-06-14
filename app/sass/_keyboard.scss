@@ -131,6 +131,7 @@
   @include justify-content( space-between );
 }
 .keyboard__delete {
+  font-size: 1em;
   display: inline-block;
   vertical-align: top;
   position: relative;
@@ -220,6 +221,7 @@
   padding: .06em .63em 0 .34em;
 }
 .keyboard__save {
+  font-size: 1em;
   display: inline-block;
   vertical-align: top;
   position: relative;
