@@ -14,7 +14,7 @@ export class KeyboardFullEnComponent {
 
     @Output() symbolType = new EventEmitter();
     @Output() spaceType = new EventEmitter();
-    //addClass = false;
+    firstActive = true;
 
     onSymbolClick(type) {
         this.symbolType.emit( type );
@@ -23,13 +23,5 @@ export class KeyboardFullEnComponent {
     onSymbolSpaceClick() {
         this.spaceType.emit( null );
     }
-
-    //onSymbolEnter() {
-    //    //this.addClass = true;
-    //}
-    //
-    //onSymbolLeave() {
-    //    //this.addClass = false;
-    //}
 
 }

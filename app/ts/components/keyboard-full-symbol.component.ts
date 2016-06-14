@@ -15,19 +15,10 @@ export class KeyboardFullSymbolComponent {
     @Output() spaceType = new EventEmitter();
     @Output() addClass = new EventEmitter();
     @Output() removeClass = new EventEmitter();
-
-    //addClass = false;
+    firstActive = true;
 
     onSymbolClick(type) {
         this.symbolType.emit( type );
     }
-
-    //onSymbolEnter() {
-    //    this.addClass = true;
-    //}
-    //
-    //onSymbolLeave() {
-    //    this.addClass = false;
-    //}
 
 }

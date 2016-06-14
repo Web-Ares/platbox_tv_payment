@@ -220,28 +220,32 @@
   border-radius: 0 .77em 0 0;
   padding: .06em .63em 0 .34em;
 }
-.keyboard__save {
-  font-size: 1em;
+.keyboard__print {
   display: inline-block;
   vertical-align: top;
   position: relative;
   padding-left: 2.8em;
+}
+.keyboard__save {
+  font-size: 1em;
+  display: inline-block;
+  vertical-align: top;
   color: rgba( 255,255,255,0.32 );
   background: transparent;
   border: none;
-
-  span {
-    font-size: .64em;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    padding-top: 2.44em;
-    min-width: 2.75em;
-    color: #fff;
-    line-height: 1em;
-    background: url("app/img/save.png") no-repeat left top;
-    background-size: contain;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
+}
+.keyboard__start {
+  font-size: .64em;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  padding-top: 3.44em;
+  min-width: 2.75em;
+  color: #fff;
+  line-height: 1em;
+  background: url("app/img/save.png") no-repeat left top;
+  border: none;
+  background-size: contain;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
 }

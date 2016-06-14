@@ -14,25 +14,10 @@ export class KeyboardNumericalComponent {
     @Output() symbolType = new EventEmitter();
     @Output() addClass = new EventEmitter();
     @Output() removeClass = new EventEmitter();
-
-    //addClass;
-
-    //constructor(private elementRef: ElementRef) {
-    //}
-
+    firstActive = true;
 
     onSymbolClick( type ) {
         this.symbolType.emit( type );
     }
-
-    //onSymbolEnter() {
-    //    let el = this.elementRef.nativeElement;
-    //    console.log(this.elementRef.nativeElement)
-    //    this.addClass = true;
-    //}
-    //
-    //onSymbolLeave() {
-    //    this.addClass = false;
-    //}
 
 }
