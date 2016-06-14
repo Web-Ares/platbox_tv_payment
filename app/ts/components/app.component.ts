@@ -284,13 +284,7 @@ export class AppComponent implements OnInit {
 
     onKeySpaceClick() {
 
-        if( this.keyboardType  == 'alfaAccount' ) {
-            this.paymentData.alfa = this.paymentData.alfa + ' ';
-        } else if( this.keyboardType  == 'payPalEmail' ) {
-            this.paymentData.payPal = this.paymentData.payPal + ' ';
-        } else if( this.keyboardType  == 'yandexEmailOrNumber' ) {
-            this.paymentData.yandex = this.paymentData.yandex + ' ';
-        }
+        this.enterSimbol( ' ' );
 
     }
 
