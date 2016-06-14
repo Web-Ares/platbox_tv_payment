@@ -58,7 +58,6 @@
   height: 1.71em;
   padding: .34em;
   text-align: center;
-  cursor: default;
   background: none;
   border: none;
   color: rgba( 255,255,255,0.32 );
@@ -137,6 +136,8 @@
   position: relative;
   padding-left: 3.2em;
   margin: 0 1.52em 0 0;
+  background: transparent;
+  border: none;
   color: rgba( 255,255,255,0.32 );
 
   span {
@@ -164,6 +165,8 @@
   position: relative;
   padding-left: 3.2em;
   margin: 0 1.84em 0 0;
+  background: transparent;
+  border: none;
   color: rgba( 255,255,255,0.32 );
 
   span {
@@ -191,7 +194,7 @@
   position: relative;
   padding-left: 7.76em;
 
-  a {
+  button {
     font-size: 1.4em;
     position: absolute;
     top: 50%;
@@ -201,6 +204,7 @@
     line-height: 1em;
     color: #fff;
     border: .06em solid #213949;
+    background: transparent;
     border-radius: .77em 0 0 0;
     padding: .06em .34em 0 .63em;
     -webkit-transform: translateY(-50%);
@@ -221,6 +225,8 @@
   position: relative;
   padding-left: 2.8em;
   color: rgba( 255,255,255,0.32 );
+  background: transparent;
+  border: none;
 
   span {
     font-size: .64em;

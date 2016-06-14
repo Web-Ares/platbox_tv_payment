@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from 'angular2/core';
+import { Component, Output, EventEmitter, Input, ElementRef } from 'angular2/core';
 
 import { AddClassDirective } from './../directives/keyhover.directive';
 
@@ -15,8 +15,24 @@ export class KeyboardNumericalComponent {
     @Output() addClass = new EventEmitter();
     @Output() removeClass = new EventEmitter();
 
+    //addClass;
+
+    //constructor(private elementRef: ElementRef) {
+    //}
+
+
     onSymbolClick( type ) {
         this.symbolType.emit( type );
     }
+
+    //onSymbolEnter() {
+    //    let el = this.elementRef.nativeElement;
+    //    console.log(this.elementRef.nativeElement)
+    //    this.addClass = true;
+    //}
+    //
+    //onSymbolLeave() {
+    //    this.addClass = false;
+    //}
 
 }

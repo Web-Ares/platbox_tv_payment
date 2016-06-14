@@ -34,11 +34,6 @@ export class KeyboardComponent implements OnChanges{
 
     };
 
-    onCancel() {
-        //console.log(5)
-        return false;
-    }
-
     onCapsClick() {
         if( this.capsOn ) {
             this.capsOn = false;

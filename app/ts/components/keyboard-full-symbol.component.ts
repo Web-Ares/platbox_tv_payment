@@ -22,12 +22,12 @@ export class KeyboardFullSymbolComponent {
         this.symbolType.emit( type );
     }
 
-    onSymbolEnter() {
-        //this.addClass = true;
-    }
-
-    onSymbolLeave() {
-        //this.addClass = false;
-    }
+    //onSymbolEnter() {
+    //    this.addClass = true;
+    //}
+    //
+    //onSymbolLeave() {
+    //    this.addClass = false;
+    //}
 
 }

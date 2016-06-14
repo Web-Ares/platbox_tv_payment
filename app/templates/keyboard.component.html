@@ -17,31 +17,35 @@
         <div>
 
             <!-- keyboard__delete -->
-            <a href="#" class="keyboard__delete"
-               (click)="onClear()">
+            <button class="keyboard__delete"
+                    (click)="onClear()">
+
                 <span>X</span>
                 {{ btnFooterText.wipeOff }}
-            </a>
+
+            </button>
             <!-- /keyboard__delete -->
 
             <!-- keyboard__caps -->
-            <a *ngIf="keyboardVisibilityFull"
-               href="#" class="keyboard__caps"
-               (click)="onCapsClick()">
+            <button *ngIf="keyboardVisibilityFull"
+                    class="keyboard__caps"
+                    (click)="onCapsClick()">
+
                 <span>LT</span>
                 {{ btnFooterText.caps }}
-            </a>
+
+            </button>
             <!-- /keyboard__caps -->
 
             <!-- keyboard__move -->
             <div class="keyboard__move">
 
                 <!-- keyboard__caps -->
-                <a href="#" class="keyboard__move-left">LB</a>
+                <button class="keyboard__move-left">LB</button>
                 <!-- /keyboard__caps -->
 
                 <!-- keyboard__caps -->
-                <a href="#" class="keyboard__move-right">RB</a>
+                <button class="keyboard__move-right">RB</button>
                 <!-- /keyboard__caps -->
 
                 {{ btnFooterText.move }}
@@ -53,11 +57,13 @@
         <div>
 
             <!-- keyboard__save -->
-            <a href="#" class="keyboard__save"
-               (click)="onSave()">
+            <button class="keyboard__save"
+                    (click)="onSave()">
+
                 <span>старт</span>
                 {{ btnFooterText.save }}
-            </a>
+
+            </button>
             <!-- /keyboard__save -->
 
         </div>
