@@ -1,46 +1,46 @@
 <div [class.uppercase]="capsOn">
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">1</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">2</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">3</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">4</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">5</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">6</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">7</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">8</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">9</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">0</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">й</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ц</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">у</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">к</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">е</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">н</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">г</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ш</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">щ</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">з</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">х</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ъ</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ё</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ф</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ы</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">в</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">а</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">п</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">р</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">о</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">л</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">д</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ж</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">э</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">я</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ч</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">с</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">м</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">и</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">т</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ь</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">б</button>
-    <button class="keyboard__key" (click)="onSymbolClick($event)" type="button">ю</button>
-    <button class="keyboard__key keyboard__key_space" (click)="onSymbolSpaceClick()" type="button">Пробел</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">1</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">2</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">3</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">4</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">5</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">6</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">7</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">8</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">9</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">0</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">й</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ц</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">у</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">к</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">е</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">н</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">г</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ш</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">щ</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">з</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">х</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ъ</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ё</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ф</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ы</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">в</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">а</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">п</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">р</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">о</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">л</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">д</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ж</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">э</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">я</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ч</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">с</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">м</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">и</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">т</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ь</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">б</button>
+    <button class="keyboard__key" (click)="onSymbolClick($event)" [addClassActive]="classActive" type="button">ю</button>
+    <button class="keyboard__key keyboard__key_space" (click)="onSymbolSpaceClick()" [addClassActive]="classActive" type="button">Пробел</button>
 </div>
