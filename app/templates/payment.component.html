@@ -1,43 +1,49 @@
 <!-- payment -->
 <div class="payment">
 
-    <my-mobile
-            *ngIf="paymentData.paymentType == 1"
-            [mobileNumber]="paymentData.mobileNumber"
-            (showKeyboard)="showKeyboardPayment($event)"></my-mobile>
+    <!-- payment__wrap -->
+    <div class="payment__wrap">
+        <my-mobile
+                *ngIf="paymentData.paymentType == 1"
+                [mobileNumber]="paymentData.mobileNumber"
+                (showKeyboard)="showKeyboardPayment($event)"></my-mobile>
 
-    <my-card
-            *ngIf="paymentData.paymentType == 2"
-            [cardNumber]="paymentData.cardNumber"
-            [cardMonth]="paymentData.cardMonth"
-            [cardYear]="paymentData.cardYear"
-            [cardCvv]="paymentData.cardCvv"
-            (showKeyboard)="showKeyboardPayment($event)"></my-card>
+        <my-card
+                *ngIf="paymentData.paymentType == 2"
+                [cardNumber]="paymentData.cardNumber"
+                [cardMonth]="paymentData.cardMonth"
+                [cardYear]="paymentData.cardYear"
+                [cardCvv]="paymentData.cardCvv"
+                (showKeyboard)="showKeyboardPayment($event)"></my-card>
 
-    <my-qiwi
-            *ngIf="paymentData.paymentType == 3"
-            [mobileNumber]="paymentData.mobileNumber"
-            (showKeyboard)="showKeyboardPayment($event)"></my-qiwi>
+        <my-qiwi
+                *ngIf="paymentData.paymentType == 3"
+                [mobileNumber]="paymentData.mobileNumber"
+                (showKeyboard)="showKeyboardPayment($event)"></my-qiwi>
 
-    <my-alfa
-            *ngIf="paymentData.paymentType == 4"
-            [alfa]="paymentData.alfa"
-            (showKeyboard)="showKeyboardPayment($event)"></my-alfa>
+        <my-alfa
+                *ngIf="paymentData.paymentType == 4"
+                [alfa]="paymentData.alfa"
+                (showKeyboard)="showKeyboardPayment($event)"></my-alfa>
 
-    <my-compay
-            *ngIf="paymentData.paymentType == 5"
-            [mobileNumber]="paymentData.mobileNumber"
-            (showKeyboard)="showKeyboardPayment($event)"></my-compay>
+        <my-compay
+                *ngIf="paymentData.paymentType == 5"
+                [mobileNumber]="paymentData.mobileNumber"
+                (showKeyboard)="showKeyboardPayment($event)"></my-compay>
 
-    <my-yandex
-            *ngIf="paymentData.paymentType == 6"
-            [yandex]="paymentData.yandex"
-            (showKeyboard)="showKeyboardPayment($event)"></my-yandex>
+        <my-yandex
+                *ngIf="paymentData.paymentType == 6"
+                [yandex]="paymentData.yandex"
+                (showKeyboard)="showKeyboardPayment($event)"></my-yandex>
 
-    <my-paypal
-            *ngIf="paymentData.paymentType == 7"
-            [payPal]="paymentData.payPal"
-            (showKeyboard)="showKeyboardPayment($event)"></my-paypal>
+        <my-paypal
+                *ngIf="paymentData.paymentType == 7"
+                [payPal]="paymentData.payPal"
+                (showKeyboard)="showKeyboardPayment($event)"></my-paypal>
+    </div>
+    <!-- /payment__wrap -->
+
+
 
     <!-- payment__layout -->
     <div class="payment__layout payment__layout_chk">

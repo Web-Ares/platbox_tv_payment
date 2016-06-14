@@ -51,7 +51,6 @@ export class AutopayComponent{
     }
 
     onSave(){
-        console.log(  );
              this._autopayService.save( 'minimum=' + parseFloat( this.autopayMinimum ) +'&saveSum=' + parseFloat( this.autopayMaximum ) )
                                      .subscribe(
                                          success => this.cancel.emit( null ),

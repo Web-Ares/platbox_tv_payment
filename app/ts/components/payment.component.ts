@@ -35,6 +35,19 @@ export class PaymentComponent {
         btnOk: 'оплатить'
     };
 
+    addClass(item, className ){
+
+        if( item.className.indexOf( className ) < 0 ){
+            if( item.className.length ){
+                item.className = item.className + ' ' + className;
+            } else {
+                item.className = className;
+            }
+        }
+
+    }
+
+
     onCancel() {
         this.cancel.emit( null );
         return false;
@@ -45,7 +58,46 @@ export class PaymentComponent {
     }
 
     onOk() {
-        this.showLicense.emit(null);
+        let wrap = window.document.getElementsByClassName( 'payment__wrap' )[0],
+            inputs = wrap.getElementsByTagName( 'input' ),
+            valid = true;
+
+        if( this.paymentData.paymentType == 1 ||
+            this.paymentData.paymentType == 3 ||
+            this.paymentData.paymentType == 2 ||
+            this.paymentData.paymentType == 5 ){
+
+            for( let input of inputs ){
+                if( input.value.indexOf('_') >= 0 || input.value == '' ){
+                    this.addClass( input, 'error' );
+                    valid = false;
+                }
+            }
+        }
+        if( this.paymentData.paymentType == 4 ||
+            this.paymentData.paymentType == 6 ){
+
+            for( let input of inputs ){
+                if( input.value == '' ){
+                    this.addClass( input, 'error' );
+                    valid = false;
+                }
+            }
+        }
+        if( this.paymentData.paymentType == 7 ){
+
+            let mail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            for( let input of inputs ){
+                if( input.value == '' || !mail.test(input.value ) ){
+                    this.addClass( input, 'error' );
+                    valid = false;
+                }
+            }
+        }
+        if( valid ){
+            this.showLicense.emit(null);
+        }
         return false;
     }
 

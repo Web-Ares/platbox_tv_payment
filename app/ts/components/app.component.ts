@@ -150,9 +150,11 @@ export class AppComponent implements OnInit {
         }
 
         this.addClass( this.currentInput, 'active' );
+        this.removeClass( this.currentInput, 'error' );
 
 
     }
+
     makeInputNormal(){
         let mask = this.currentInput.dataset.mask,
             type = this.keyboardType;
@@ -278,24 +280,6 @@ export class AppComponent implements OnInit {
             value = target.innerText;
 
         this.enterSimbol( value );
-
-        // if( this.keyboardType  == 'mobileNumber' ) {
-        //     this.paymentData.mobileNumber = this.paymentData.mobileNumber + value;
-        // } else if( this.keyboardType  == 'alfaAccount' ) {
-        //     this.paymentData.alfa = this.paymentData.alfa + value;
-        // } else if( this.keyboardType  == 'numberCard' ) {
-        //     this.paymentData.cardNumber = this.paymentData.cardNumber + value;
-        // } else if( this.keyboardType  == 'validityPeriodMonth' ) {
-        //     this.paymentData.cardMonth = this.paymentData.cardMonth + value;
-        // } else if( this.keyboardType  == 'validityPeriodYear' ) {
-        //     this.paymentData.cardYear = this.paymentData.cardYear + value;
-        // } else if( this.keyboardType  == 'cvvCvc' ) {
-        //     this.paymentData.cardCvv = this.paymentData.cardCvv + value;
-        // } else if( this.keyboardType  == 'payPalEmail' ) {
-        //     this.paymentData.payPal = this.paymentData.payPal + value;
-        // } else if( this.keyboardType  == 'yandexEmailOrNumber' )  {
-        //     this.paymentData.yandex = this.paymentData.yandex + value;
-        // }
     }
 
     onKeySpaceClick() {
