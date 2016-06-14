@@ -318,7 +318,11 @@ export class AppComponent implements OnInit {
             }
         }
 
-        value = activeElem.innerText;
+        if( this.hasClass( activeElem, 'keyboard__key_space' ) ) {
+            value = ' ';
+        } else {
+            value = activeElem.innerText;
+        }
 
         this.enterSimbol( value );
 

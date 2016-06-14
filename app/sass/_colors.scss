@@ -6,9 +6,14 @@ $payment-types__btn-back-hover: #fff;
 $payment-types__btn-color: #fff;
 $payment-types__btn-color-hover: #001626;
 
-$text-field-back: #002a47;
+$text-field-back1: #fff;
+$text-field-back2: #002a47;
+$text-field-back3: #470019;
 $text-field-back-focused: #fff;
-$text-field-color: rgba( 255,255,255, .3 );
+$text-field-color1: #0073c4;
+$text-field-color2: rgba( 255,255,255, .3 );
+$text-field-color3: #fff;
+$text-field-box-shadow3: rgba(208, 79, 79, 0.7);
 
 /*---------- nice-checkbox ----------*/
 $nice-checkbox-after-color: #3374a1;
@@ -27,3 +32,23 @@ $btn-color: #fff;
 $btn-color-hover: #0073c4;
 $btn-color-active: #0073c4;
 /*---------- /btn ---------*/
+
+/*---------- keyboard ---------*/
+$keyboard-back: #001626;
+$keyboard-color: rgba( 255,255,255,0.32 );
+$keyboard-key-color: rgba( 255,255,255,0.32 );
+$keyboard-key-active-color: #000;
+$keyboard-key-active-back: #fff;
+$keyboard-key-active-shadow: rgba(255,255,255,0.3);
+$keyboard-key-space-border: rgba(255,255,255,0.32);
+$keyboard-types-color: rgba( 255,255,255,0.32 );
+$keyboard-types-active-color: #fff;
+$keyboard-delete-color: rgba( 255,255,255,0.32 );
+$keyboard-delete-border-color: #213949;
+$keyboard-caps-color1: rgba( 255,255,255,0.32 );
+$keyboard-caps-color2: rgba( 255,255,255,1 );
+$keyboard-move-color: #fff;
+$keyboard-move-border-color: #213949;
+$keyboard-save-color: rgba( 255,255,255,0.32 );
+$keyboard-start-color: #fff;
+/*---------- /keyboard ---------*/

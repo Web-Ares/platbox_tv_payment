@@ -4,11 +4,11 @@
   left: 0;
   width: 100%;
   height: 50%;
-  background: #001626;
+  background: $keyboard-back;
   @include title-font-2();
   font-size: 100px;
   line-height: .3em;
-  color: rgba( 255,255,255,0.32 );
+  color: $keyboard-color;
 }
 .uppercase .keyboard__key {
   text-transform: uppercase;
@@ -60,12 +60,12 @@
   text-align: center;
   background: none;
   border: none;
-  color: rgba( 255,255,255,0.32 );
+  color: $keyboard-key-color;
 
   &.active {
-    color: #000;
-    background: #fff;
-    box-shadow: 0 0 .2em .06em rgba(255,255,255,0.3);
+    color: $keyboard-key-active-color;
+    background: $keyboard-key-active-back;
+    box-shadow: 0 0 .2em .06em $keyboard-key-active-shadow;
   }
 }
 .keyboard__key_space {
@@ -76,9 +76,8 @@
   text-transform: none !important;
   margin: 0 0 0 .72em;
   padding: 0 .28em .12em;
-
   line-height: 1em;
-  border-bottom: .08em solid rgba(255,255,255,0.32);
+  border-bottom: .08em solid $keyboard-key-space-border;
   letter-spacing: .08em;
 
   &:after,
@@ -88,7 +87,7 @@
     bottom: 0;
     width: .08em;
     height: .16em;
-    background: rgba( 255,255,255,0.32 );
+    background: $keyboard-key-space-border;
     content: ''
   }
 
@@ -105,10 +104,10 @@
   a {
     display: inline-block;
     vertical-align: top;
-    color: rgba( 255,255,255,0.32 );
+    color: $keyboard-types-color;
 
     &.active {
-      color: #fff;
+      color: $keyboard-types-active-color;
     }
   }
 }
@@ -139,7 +138,7 @@
   margin: 0 1.52em 0 0;
   background: transparent;
   border: none;
-  color: rgba( 255,255,255,0.32 );
+  color: $keyboard-delete-color;
 
   span {
     position: absolute;
@@ -148,7 +147,7 @@
     padding: .37em .31em;
     width: 1.71em;
     height: 1.71em;
-    border: .06em solid #213949;
+    border: .06em solid $keyboard-delete-border-color;
     border-radius: 100%;
     font-size: 1.4em;
     line-height: 1em;
@@ -169,7 +168,7 @@
   margin: 0 1.84em 0 0;
   background: transparent;
   border: none;
-  color: rgba( 255,255,255,0.32 );
+  color: $keyboard-caps-color1;
 
   span {
     font-size: 1.4em;
@@ -182,7 +181,7 @@
     background: url("app/img/caps.png") no-repeat left top;
     background-size: cover;
     line-height: 1em;
-    color: #fff;
+    color: $keyboard-caps-color2;
     text-align: center;
     box-sizing: border-box;
     text-transform: uppercase;
@@ -204,17 +203,14 @@
     width: 2.29em;
     height: 1.14em;
     line-height: 1em;
-    color: #fff;
-    border: .06em solid #213949;
+    color: $keyboard-move-color;
+    border: .06em solid $keyboard-move-border-color;
     background: transparent;
     border-radius: .77em 0 0 0;
     padding: .06em .34em 0 .63em;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
   }
-}
-.keyboard__move .keyboard__move-left {
-
 }
 .keyboard__move .keyboard__move-right {
   left: 2.57em;
@@ -231,7 +227,7 @@
   font-size: 1em;
   display: inline-block;
   vertical-align: top;
-  color: rgba( 255,255,255,0.32 );
+  color: $keyboard-save-color;
   background: transparent;
   border: none;
 }
@@ -242,7 +238,7 @@
   left: 0;
   padding-top: 3.44em;
   min-width: 2.75em;
-  color: #fff;
+  color: $keyboard-start-color;
   line-height: 1em;
   background: url("app/img/save.png") no-repeat left top;
   border: none;
