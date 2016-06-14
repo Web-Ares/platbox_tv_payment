@@ -60,10 +60,7 @@ export class AppComponent implements OnInit {
     spaceType;
     clearElem;
     saveText;
-
-    appResize(){
-        this.setSize();
-    }
+    printKey;
 
     addClass(item, className ){
 
@@ -75,6 +72,33 @@ export class AppComponent implements OnInit {
             }
         }
 
+    }
+
+    hasClass( elem, classNme ) {
+        return elem.className.indexOf( classNme ) >= 0;
+    }
+
+    removeClass(item, className ){
+
+        let classNameStart = item.className.indexOf( className );
+        if( classNameStart > 0 ){
+            if( item.className == className ){
+                item.className = '';
+            } else {
+                let classesArr = item.className.split( className );
+
+                if( classesArr[0].trim() == '' || classesArr[1].trim() == '' ) {
+                    item.className = classesArr[0].trim() + ' ' + classesArr[1].trim();
+                } else {
+                    item.className = classesArr[0].trim() + ' ' + classesArr[1].trim();
+                }
+
+            }
+        }
+    }
+
+    appResize(){
+        this.setSize();
     }
 
     ngOnInit() {
@@ -168,25 +192,6 @@ export class AppComponent implements OnInit {
 
     }
 
-    removeClass(item, className ){
-
-        let classNameStart = item.className.indexOf( className );
-        if( classNameStart > 0 ){
-            if( item.className == className ){
-                item.className = '';
-            } else {
-                let classesArr = item.className.split( className );
-
-                if( classesArr[0].trim() == '' || classesArr[1].trim() == '' ) {
-                    item.className = classesArr[0].trim() + ' ' + classesArr[1].trim();
-                } else {
-                    item.className = classesArr[0].trim() + ' ' + classesArr[1].trim();
-                }
-
-            }
-        }
-    }
-
     removeSymbol(){
         let dataset = this.currentInput.dataset,
             mask = dataset.mask,
@@ -276,7 +281,7 @@ export class AppComponent implements OnInit {
     }
 
     onKeyClick( type ) {
-        var target = type.target || type.srcElement || type.currentTarget,
+        let target = type.target || type.srcElement || type.currentTarget,
             value = target.innerText;
 
         this.enterSimbol( value );
@@ -299,6 +304,24 @@ export class AppComponent implements OnInit {
         this.makeInputNormal();
 
         return false;
+    }
+
+    onStartPrint () {
+
+        let elems = document.getElementsByClassName('keyboard__key'),
+            activeElem,
+            value;
+
+        for( let i = 0; i < elems.length; i++ ) {
+            if( this.hasClass( elems[i], 'active' ) ) {
+                activeElem = elems[i];
+            }
+        }
+
+        value = activeElem.innerText;
+
+        this.enterSimbol( value );
+
     }
 
 }

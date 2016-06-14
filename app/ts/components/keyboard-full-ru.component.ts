@@ -16,8 +16,7 @@ export class KeyboardFullRuComponent {
     @Output() spaceType = new EventEmitter();
     @Output() addClass = new EventEmitter();
     @Output() removeClass = new EventEmitter();
-
-    //addClass = false;
+    firstActive = true;
 
     onSymbolClick(type) {
         this.symbolType.emit( type );
@@ -25,14 +24,6 @@ export class KeyboardFullRuComponent {
 
     onSymbolSpaceClick() {
         this.spaceType.emit( null );
-    }
-
-    onSymbolEnter() {
-        //this.addClass = true;
-    }
-
-    onSymbolLeave() {
-        //this.addClass = false;
     }
 
 }
