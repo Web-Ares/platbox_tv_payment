@@ -12,6 +12,8 @@ export class AddClassDirective {
 
     private newClass = 'active';
     private elem: HTMLElement;
+    e;
+    firstActive = true;
 
     constructor( elem: ElementRef ) {
         this.elem = elem.nativeElement;
@@ -25,7 +27,10 @@ export class AddClassDirective {
 
     @Input( 'addClassActive' ) highlightColor: string;
 
-    removeClass(item, className ){
+    removeClass( item, className ){
+
+        console.log(item)
+        console.log(className)
 
         let classNameStart = item.className.indexOf( className );
 
@@ -46,7 +51,7 @@ export class AddClassDirective {
 
     }
 
-    addClass(item, className ){
+    addClass( item, className ){
 
         if( item.className.indexOf( className ) < 0 ){
 
@@ -60,11 +65,22 @@ export class AddClassDirective {
     }
 
     onMouseEnter() {
-        this.addClass( this.elem, this.highlightColor || this.newClass );
+
+        if( this.elem.parentElement.getElementsByClassName('active').length ) {
+
+            let elems = this.elem.parentElement.getElementsByClassName('active');
+
+            for( var i = 0;i <= elems.length; i++ ) {
+                this.removeClass( elems[ 0 ], 'active' );
+            }
+
+        }
+
+        this.addClass( this.elem, 'active' );
     }
 
     onMouseLeave() {
-        this.removeClass( this.elem, this.highlightColor || this.newClass );
+        //this.removeClass( this.elem, this.highlightColor || this.newClass );
     }
 
 }
