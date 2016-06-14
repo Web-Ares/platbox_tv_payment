@@ -8,20 +8,19 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
 
 export class AlfaComponent {
     @Input() alfa: string;
-    @Output() changeAlfa = new EventEmitter();
     @Output() showKeyboard = new EventEmitter();
 
     content = {
         inputLabel: 'Ваш аккаунт'
     };
 
-    onChangeAlfa(){
-        this.changeAlfa.emit( this.alfa );
+    onClickInput( event,type ){
+        let data = {
+            input: <HTMLInputElement>event.target.parentElement.getElementsByTagName('input')[0],
+            type: type
+        };
 
-    }
-
-    onClickInput( type ){
-        this.showKeyboard.emit( type );
+        this.showKeyboard.emit( data );
     }
 
 

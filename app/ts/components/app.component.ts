@@ -43,6 +43,7 @@ export class AppComponent implements OnInit {
         minimum: '335 Рубликов',
         amount: '1000 Рублей'
     };
+    currentInput: HTMLInputElement;
     paymentsVisibility = true;
     transactionVisibility = false;
     keyboardVisibility = false;
@@ -64,6 +65,18 @@ export class AppComponent implements OnInit {
         this.setSize();
     }
 
+    addClass(item, className ){
+
+        if( item.className.indexOf( className ) < 0 ){
+            if( item.className.length ){
+                item.className = item.className + ' ' + className;
+            } else {
+                item.className = className;
+            }
+        }
+
+    }
+
     ngOnInit() {
         let data = window.document.getElementsByTagName('body')[0].dataset;
         this.paymentData.amount = data.amount;
@@ -77,26 +90,6 @@ export class AppComponent implements OnInit {
         this.autoPayVisibility = false;
         this.paymentsVisibility = true;
         this.keyboardVisibility = false;
-    }
-
-    changeCardNumber( cardNumber ){
-        this.paymentData.cardNumber = cardNumber;
-    }
-
-    changeCardYear( cardYear ){
-        this.paymentData.cardYear = cardYear;
-    }
-
-    changeCardMonth( cardMonth ){
-        this.paymentData.cardMonth = cardMonth;
-    }
-
-    changeCardCvv( cardCvv ){
-        this.paymentData.cardCvv = cardCvv;
-    }
-
-    changeMobileNumber( mobileNumber ){
-        this.paymentData.mobileNumber = mobileNumber;
     }
 
     changeAlfa( alfa ){
@@ -113,6 +106,103 @@ export class AppComponent implements OnInit {
 
     changeSavePaymentData( savePayment ){
         this.paymentData.savePaymentData = savePayment;
+    }
+
+    enterSimbol( value ){
+        let maskSimbol = this.currentInput.dataset.masksimbol,
+            type = this.keyboardType,
+            oldVal = this.paymentData[ type ],
+            maskIndex = oldVal.indexOf( maskSimbol );
+
+        if( maskSimbol ){
+            if( maskIndex >= 0 ){
+                this.paymentData[ type ] = ( oldVal.substring( 0, maskIndex ) + value + oldVal.substring( maskIndex + 1 ) );
+            }
+        } else {
+            this.paymentData[ type ] += value;
+        }
+
+    }
+
+    makeInputActive(){
+        let mask = this.currentInput.dataset.mask,
+            type = this.keyboardType,
+            wH = window.innerHeight / 2,
+            site = window.document.getElementsByClassName( 'site' )[0],
+            offset = this.currentInput.getBoundingClientRect(),
+            inputH=this.currentInput.offsetHeight;
+
+
+        if( offset.top >= wH || offset.bottom >= wH ){
+
+            setTimeout(function () {
+                site.style.overflow = 'auto';
+
+                site.scrollTop = ( offset.top + inputH + 10 - wH);
+                site.style.overflow = 'hidden';
+
+            }, 1);
+        }
+
+
+        if( mask && this.paymentData[ type ] == '' ){
+            this.paymentData[ type ] = mask;
+        }
+
+        this.addClass( this.currentInput, 'active' );
+
+
+    }
+    makeInputNormal(){
+        let mask = this.currentInput.dataset.mask,
+            type = this.keyboardType;
+
+
+        if( mask == this.paymentData[ type ] ){
+            this.paymentData[ type ] = '';
+        }
+
+        this.removeClass( this.currentInput, 'active' );
+
+    }
+
+    removeClass(item, className ){
+
+        let classNameStart = item.className.indexOf( className );
+        if( classNameStart > 0 ){
+            if( item.className == className ){
+                item.className = '';
+            } else {
+                let classesArr = item.className.split( className );
+
+                if( classesArr[0].trim() == '' || classesArr[1].trim() == '' ) {
+                    item.className = classesArr[0].trim() + ' ' + classesArr[1].trim();
+                } else {
+                    item.className = classesArr[0].trim() + ' ' + classesArr[1].trim();
+                }
+
+            }
+        }
+    }
+
+    removeSymbol(){
+        let dataset = this.currentInput.dataset,
+            mask = dataset.mask,
+            maskSymbol = dataset.masksimbol,
+            type = this.keyboardType,
+            oldVal = this.paymentData[ type ], i = null;
+
+        if( mask ){
+            for( i = mask.length-1; i >= 0; i-- ){
+                if( mask[ i ] == maskSymbol && oldVal[ i ] != maskSymbol ){
+                    this.paymentData[ type ] = ( oldVal.substring( 0, i ) + maskSymbol + oldVal.substring( i + 1 ) );
+                    break;
+                }
+            }
+        } else {
+            this.paymentData[ type ] = oldVal.substr(0,oldVal.length -1 );
+        }
+
     }
 
     setSelectedPaymentType( paymentType ){
@@ -155,25 +245,31 @@ export class AppComponent implements OnInit {
         this.autopayData.amount = value;
     }
 
-    showKeyboard( type ){
+    showKeyboard( data ){
         this.keyboardVisibility = true;
 
-        this.keyboardType = type;
+        this.keyboardType = data.type;
+        this.currentInput = data.input;
+
+        this.makeInputActive();
+
 
         if ( this.keyboardType == 'mobileNumber' ||
-            this.keyboardType == 'numberCard' ||
-            this.keyboardType == 'validityPeriodMonth' ||
-            this.keyboardType == 'validityPeriodYear' ||
-            this.keyboardType == 'cvvCvc') {
+             this.keyboardType == 'cardNumber' ||
+             this.keyboardType == 'cardMonth' ||
+             this.keyboardType == 'cardYear' ||
+             this.keyboardType == 'alfa' ||
+             this.keyboardType == 'cardCvv') {
 
             this.keyboardVisibilityFull = false;
             this.keyboardVisibilityNumerical = true;
 
         } else {
+
             this.keyboardVisibilityFull = true;
             this.keyboardVisibilityNumerical = false;
-        }
 
+        }
 
     }
 
@@ -181,23 +277,25 @@ export class AppComponent implements OnInit {
         var target = type.target || type.srcElement || type.currentTarget,
             value = target.innerText;
 
-        if( this.keyboardType  == 'mobileNumber' ) {
-            this.paymentData.mobileNumber = this.paymentData.mobileNumber + value;
-        } else if( this.keyboardType  == 'alfaAccount' ) {
-            this.paymentData.alfa = this.paymentData.alfa + value;
-        } else if( this.keyboardType  == 'numberCard' ) {
-            this.paymentData.cardNumber = this.paymentData.cardNumber + value;
-        } else if( this.keyboardType  == 'validityPeriodMonth' ) {
-            this.paymentData.cardMonth = this.paymentData.cardMonth + value;
-        } else if( this.keyboardType  == 'validityPeriodYear' ) {
-            this.paymentData.cardYear = this.paymentData.cardYear + value;
-        } else if( this.keyboardType  == 'cvvCvc' ) {
-            this.paymentData.cardCvv = this.paymentData.cardCvv + value;
-        } else if( this.keyboardType  == 'payPalEmail' ) {
-            this.paymentData.payPal = this.paymentData.payPal + value;
-        } else if( this.keyboardType  == 'yandexEmailOrNumber' ) {
-            this.paymentData.yandex = this.paymentData.yandex + value;
-        }
+        this.enterSimbol( value );
+
+        // if( this.keyboardType  == 'mobileNumber' ) {
+        //     this.paymentData.mobileNumber = this.paymentData.mobileNumber + value;
+        // } else if( this.keyboardType  == 'alfaAccount' ) {
+        //     this.paymentData.alfa = this.paymentData.alfa + value;
+        // } else if( this.keyboardType  == 'numberCard' ) {
+        //     this.paymentData.cardNumber = this.paymentData.cardNumber + value;
+        // } else if( this.keyboardType  == 'validityPeriodMonth' ) {
+        //     this.paymentData.cardMonth = this.paymentData.cardMonth + value;
+        // } else if( this.keyboardType  == 'validityPeriodYear' ) {
+        //     this.paymentData.cardYear = this.paymentData.cardYear + value;
+        // } else if( this.keyboardType  == 'cvvCvc' ) {
+        //     this.paymentData.cardCvv = this.paymentData.cardCvv + value;
+        // } else if( this.keyboardType  == 'payPalEmail' ) {
+        //     this.paymentData.payPal = this.paymentData.payPal + value;
+        // } else if( this.keyboardType  == 'yandexEmailOrNumber' )  {
+        //     this.paymentData.yandex = this.paymentData.yandex + value;
+        // }
     }
 
     onKeySpaceClick() {
@@ -213,29 +311,14 @@ export class AppComponent implements OnInit {
     }
 
     onClearSymbol() {
-        if( this.keyboardType  == 'mobileNumber' ) {
-            this.paymentData.mobileNumber = this.paymentData.mobileNumber.substring(0, this.paymentData.mobileNumber.length - 1);
-        } else if( this.keyboardType  == 'alfaAccount' ) {
-            this.paymentData.alfa = this.paymentData.alfa.substring(0, this.paymentData.alfa.length - 1);
-        } else if( this.keyboardType  == 'numberCard' ) {
-            this.paymentData.cardNumber = this.paymentData.cardNumber.substring(0, this.paymentData.cardNumber.length - 1);
-        } else if( this.keyboardType  == 'validityPeriodMonth' ) {
-            this.paymentData.cardMonth = this.paymentData.cardMonth.substring(0, this.paymentData.cardMonth.length - 1);
-        } else if( this.keyboardType  == 'validityPeriodYear' ) {
-            this.paymentData.cardYear = this.paymentData.cardYear.substring(0, this.paymentData.cardYear.length - 1);
-        } else if( this.keyboardType  == 'cvvCvc' ) {
-            this.paymentData.cardCvv = this.paymentData.cardCvv.substring(0, this.paymentData.cardCvv.length - 1);
-        } else if( this.keyboardType  == 'payPalEmail' ) {
-            this.paymentData.payPal = this.paymentData.payPal.substring(0, this.paymentData.payPal.length - 1);
-        } else if( this.keyboardType  == 'yandexEmailOrNumber' ) {
-            this.paymentData.yandex = this.paymentData.yandex.substring(0, this.paymentData.yandex.length - 1);
-        }
+        this.removeSymbol();
 
         return false;
     }
 
     onSaveSymbols () {
         this.keyboardVisibility = false;
+        this.makeInputNormal();
 
         return false;
     }

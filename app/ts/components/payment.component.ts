@@ -27,14 +27,6 @@ export class PaymentComponent {
     @Output() cancel = new EventEmitter();
     @Output() showLicense = new EventEmitter();
     @Output() changeSavePaymentData = new EventEmitter();
-    @Output() changeMobileNumber = new EventEmitter();
-    @Output() changeAlfa = new EventEmitter();
-    @Output() changeYandex = new EventEmitter();
-    @Output() changePayPal = new EventEmitter();
-    @Output() changeCardNumber = new EventEmitter();
-    @Output() changeCardMonth = new EventEmitter();
-    @Output() changeCardYear = new EventEmitter();
-    @Output() changeCardCvv = new EventEmitter();
     @Output() showKeyboard = new EventEmitter();
 
     content = {
@@ -42,46 +34,6 @@ export class PaymentComponent {
         btnCancel: 'отмена',
         btnOk: 'оплатить'
     };
-
-    onChangeAlfa( alfa ){
-        this.paymentData.alfa = alfa;
-        this.changeAlfa.emit( alfa );
-    }
-
-    onChangeYandex( yandex ){
-        this.paymentData.yandex = yandex;
-        this.changeYandex.emit( yandex );
-    }
-
-    onChangePayPal( payPal ){
-        this.paymentData.payPal = payPal;
-        this.changePayPal.emit( payPal );
-    }
-
-    onChangeMobileNumber( mobileNumber ){
-        this.paymentData.mobileNumber = mobileNumber;
-        this.changeMobileNumber.emit( mobileNumber );
-    }
-
-    onChangeCardNumber( cardNumber ){
-        this.paymentData.cardNumber = cardNumber;
-        this.changeCardNumber.emit( cardNumber );
-    }
-
-    onChangeCardMonth( cardMonth ){
-        this.paymentData.cardMonth = cardMonth;
-        this.changeCardMonth.emit( cardMonth );
-    }
-
-    onChangeCardYear( cardYear ){
-        this.paymentData.cardYear = cardYear;
-        this.changeCardYear.emit( cardYear );
-    }
-
-    onChangeCardCvv( cardCvv ){
-        this.paymentData.cardCvv = cardCvv;
-        this.changeCardCvv.emit( cardCvv );
-    }
 
     onCancel() {
         this.cancel.emit( null );

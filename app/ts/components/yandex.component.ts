@@ -8,21 +8,19 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
 
 export class YandexComponent {
     @Input() yandex: string;
-    @Output() changeYandex = new EventEmitter();
     @Output() showKeyboard = new EventEmitter();
 
     content = {
         inputLabel: 'Телефон или e-mail'
     };
 
-    onChangeYandex(){
-        this.changeYandex.emit( this.yandex );
+    onClickInput( event,type ){
+        let data = {
+            input: <HTMLInputElement>event.target.parentElement.getElementsByTagName('input')[0],
+            type: type
+        };
 
+        this.showKeyboard.emit( data );
     }
-
-    onClickInput( type ){
-        this.showKeyboard.emit( type );
-    }
-
 
 }

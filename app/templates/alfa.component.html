@@ -18,12 +18,12 @@
         <div class="inputs">
 
             <!-- text-field -->
-            <div class="text-field">
-                <input type="text"
+            <div class="text-field"
+                 (click)="onClickInput($event,'alfa')">
+                <input type="text"  data-masksimbol="_" data-mask="____ ____ ____ ____"
                        [(ngModel)]="alfa"
-                       id="mobile__number"
-                       (keyup)="onChangeAlfa()"
-                       (click)="onClickInput('alfaAccount')">
+                       id="mobile__number">
+                <div></div>
             </div>
             <!-- /text-field -->
 

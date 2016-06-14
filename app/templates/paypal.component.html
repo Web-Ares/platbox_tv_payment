@@ -18,12 +18,12 @@
         <div class="inputs">
 
             <!-- text-field -->
-            <div class="text-field">
-                <input type="email"
+            <div class="text-field"
+                 (click)="onClickInput($event,'payPal')">
+                <input type="text"
                        [(ngModel)]="payPal"
-                       id="mobile__number"
-                       (keyup)="onChangePayPal()"
-                       (click)="onClickInput('payPalEmail')">
+                       id="mobile__number">
+                <div></div>
             </div>
             <!-- /text-field -->
 

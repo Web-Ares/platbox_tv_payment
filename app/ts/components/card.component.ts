@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from 'angular2/core';
+import { Component, Output, EventEmitter, Input, OnChanges } from 'angular2/core';
 
 @Component({
     selector: 'my-card',
@@ -6,16 +6,14 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
     styleUrls: [ 'app/css/card.component.css' ]
 })
 
-export class CardComponent {
+export class CardComponent implements OnChanges{
     @Input() cardNumber: string;
     @Input() cardYear: string;
     @Input() cardCvv: string;
     @Input() cardMonth: string;
-    @Output() changeCardNumber = new EventEmitter();
-    @Output() changeCardMonth = new EventEmitter();
-    @Output() changeCardYear = new EventEmitter();
-    @Output() changeCardCvv = new EventEmitter();
     @Output() showKeyboard = new EventEmitter();
+
+    cvvProtect: string = '';
 
     content = {
         numberLabel: 'Номер карты',
@@ -23,24 +21,25 @@ export class CardComponent {
         cvvLabel: 'CVV / CVC'
     };
 
-    onChangeCardNumber(){
-        this.changeCardNumber.emit( this.cardNumber );
+    ngOnChanges(){
+        let i;
+
+        this.cvvProtect = '';
+
+        for( i = 0; i<this.cardCvv.length; i++ ){
+            if( this.cardCvv[ i ] != '_' ){
+                this.cvvProtect += '*';
+            }
+        }
     }
 
-    onChangeCardYear(){
-        this.changeCardYear.emit( this.cardYear );
-    }
+    onClickInput( event,type ){
+        let data = {
+            input: <HTMLInputElement>event.target.parentElement.getElementsByTagName('input')[0],
+            type: type
+        };
 
-    onChangeCardMonth(){
-        this.changeCardMonth.emit( this.cardMonth );
-    }
-
-    onChangeCardCvv(){
-        this.changeCardCvv.emit( this.cardCvv );
-    }
-
-    onClickInput( type ){
-        this.showKeyboard.emit( type );
+        this.showKeyboard.emit( data );
     }
 
 }

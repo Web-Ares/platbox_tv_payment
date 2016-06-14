@@ -18,12 +18,12 @@
         <div class="inputs">
 
             <!-- text-field -->
-            <div class="text-field">
+            <div class="text-field"
+                 (click)="onClickInput($event,'yandex')">
                 <input type="text"
                        [(ngModel)]="yandex"
-                       id="mobile__number"
-                       (keyup)="onChangeYandex()"
-                       (click)="onClickInput('yandexEmailOrNumber')">
+                       id="mobile__number">
+                <div></div>
             </div>
             <!-- /text-field -->
 

@@ -8,20 +8,19 @@ import { Component, Output, EventEmitter, Input } from 'angular2/core';
 
 export class CompayComponent {
     @Input() mobileNumber: string;
-    @Output() changeMobileNumber = new EventEmitter();
     @Output() showKeyboard = new EventEmitter();
 
     content = {
         inputLabel: 'Номер телефона'
     };
 
-    onChangeMobileNumber(){
-        this.changeMobileNumber.emit( this.mobileNumber );
+    onClickInput( event,type ){
+        let data = {
+            input: <HTMLInputElement>event.target.parentElement.getElementsByTagName('input')[0],
+            type: type
+        };
 
-    }
-
-    onClickInput( type ){
-        this.showKeyboard.emit( type );
+        this.showKeyboard.emit( data );
     }
 
 

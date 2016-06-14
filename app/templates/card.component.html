@@ -1,5 +1,5 @@
 <!-- card -->
-<form class="card">
+<form class="card" autocomplete="off" name="card">
 
     <!-- card__layout -->
     <div class="card__layout">
@@ -12,12 +12,13 @@
         <div class="inputs">
 
             <!-- text-field -->
-            <div class="text-field">
-                <input type="text"
+            <div class="text-field"
+                 (click)="onClickInput($event,'cardNumber')">
+                <input type="text" data-masksimbol="_" data-mask="____ ____ ____ ____"
                        [(ngModel)]="cardNumber"
                        id="card__number"
-                       (keyup)="onChangeCardNumber()"
-                       (click)="onClickInput('numberCard')">
+                       >
+                <div></div>
             </div>
             <!-- /text-field -->
 
@@ -38,22 +39,22 @@
         <div class="inputs">
 
             <!-- text-field -->
-            <div class="text-field text-field_small">
-                <input type="text"
+            <div class="text-field text-field_small"
+                 (click)="onClickInput($event,'cardMonth')">
+                <input type="text" type="text" data-masksimbol="_" data-mask="__"
                        [(ngModel)]="cardMonth"
-                       id="card__month"
-                       (keyup)="onChangeCardMonth()"
-                       (click)="onClickInput('validityPeriodMonth')">
+                       id="card__month">
+                <div></div>
             </div>
             <!-- /text-field -->
 
             <!-- text-field -->
-            <div class="text-field text-field_small">
-                <input type="text"
+            <div class="text-field text-field_small"
+                 (click)="onClickInput($event,'cardYear')">
+                <input type="text" data-masksimbol="_" data-mask="__"
                        [(ngModel)]="cardYear"
-                       id="card__year"
-                       (keyup)="onChangeCardYear()"
-                       (click)="onClickInput('validityPeriodYear')">
+                       id="card__year">
+                <div></div>
             </div>
             <!-- /text-field -->
 
@@ -74,13 +75,13 @@
         <div class="inputs">
 
             <!-- text-field -->
-            <div class="text-field">
-                <input type="password"
+            <div class="text-field"
+                 (click)="onClickInput($event,'cardCvv')">
+                <input type="text" data-masksimbol="_" data-mask="___"
                        maxlength="3"
-                       [(ngModel)]="cardCvv"
-                       id="card__cvv"
-                       (keyup)="onChangeCardCvv()"
-                       (click)="onClickInput('cvvCvc')">
+                       [(ngModel)]="cvvProtect"
+                       id="card__cvv">
+                <div></div>
             </div>
             <!-- /text-field -->
 

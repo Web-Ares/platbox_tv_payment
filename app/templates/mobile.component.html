@@ -1,5 +1,5 @@
 <!-- mobile -->
-<form class="mobile">
+<form class="mobile" autocomplete="off">
 
     <!-- mobile__layout -->
     <div class="mobile__layout">
@@ -12,12 +12,12 @@
         <div class="inputs">
 
             <!-- text-field -->
-            <div class="text-field">
-                <input type="text"
+            <div class="text-field"
+                 (click)="onClickInput($event,'mobileNumber')">
+                <input type="text" data-masksimbol="_" data-mask="+7(___) ___-__-__"
                        [(ngModel)]="mobileNumber"
-                       id="mobile__number"
-                       (keyup)="onChangeMobileNumber()"
-                       (click)="onClickInput('mobileNumber')">
+                       id="mobile__number">
+                <div></div>
             </div>
             <!-- /text-field -->
 
