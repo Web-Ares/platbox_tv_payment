@@ -11,15 +11,16 @@
     height: 100%;
     width: 100%;
     border: none;
-    background: $text-field-back1;
-    color: $text-field-color1;
+    background: $text-field-back2;
+    color: $text-field-color2;
     font-size: .25em;
     padding: 0 1em;
     z-index: 1;
 
     &.active {
-      background: $text-field-back2;
-      color: $text-field-color2;
+      background: $text-field-back1;
+      color: $text-field-color1;
+      box-shadow: 0 0 .2em .06em $text-field-box-shadow1;
     }
 
     &.error {
