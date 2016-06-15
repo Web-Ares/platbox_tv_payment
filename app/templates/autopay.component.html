@@ -49,11 +49,12 @@
             <div class="inputs">
 
                 <!-- text-field -->
-                <div class="text-field">
-                    <input type="text"
+                <div class="text-field" (click)="onClickInput($event,'minimum')">
+                    <input type="text" data-sufix="Рубликов"
                            [(ngModel)]="autopayMinimum"
                            id="autopay__minimum"
-                           (keyup)="changeAutopayMinimum()">
+                           >
+                    <div></div>
                 </div>
                 <!-- /text-field -->
 
@@ -74,11 +75,11 @@
             <div class="inputs">
 
                 <!-- text-field -->
-                <div class="text-field">
-                    <input type="text"
+                <div class="text-field" (click)="onClickInput($event,'amount')">
+                    <input type="text" data-sufix="Рубликов"
                            [(ngModel)]="autopayMaximum"
-                           id="autopay__maximum"
-                           (keyup)="changeAutopayMaximum()">
+                           id="autopay__maximum">
+                    <div></div>
                 </div>
                 <!-- /text-field -->
 

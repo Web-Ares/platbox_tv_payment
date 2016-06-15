@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input } from 'angular2/core';
+import { Component, Output, EventEmitter, Input, DoCheck } from 'angular2/core';
 import { AutopayService } from './../services/autopay.service';
 
 @Component({
@@ -8,13 +8,14 @@ import { AutopayService } from './../services/autopay.service';
     providers: [ AutopayService ]
 })
 
-export class AutopayComponent{
-    @Input() autopayMaximum;
-    @Input() autopayMinimum;
+export class AutopayComponent implements DoCheck{
+    @Input() autopayData;
     @Output() cancel = new EventEmitter();
+    @Output() onChangeAutopay = new EventEmitter();
     @Output() onChangeAutopayMinimum = new EventEmitter();
     @Output() onChangeAutopayMaximum = new EventEmitter();
-
+    autopayMinimum: string;
+    autopayMaximum: string;
 
     save: boolean = false;
 
@@ -32,14 +33,20 @@ export class AutopayComponent{
 
     constructor(private _autopayService: AutopayService ){}
 
+    ngDoCheck(){
+        if( isNaN(this.autopayData.minimum) ){
+            this.autopayMinimum = '';
+        } else {
+            this.autopayMinimum = this.autopayData.minimum + ' Рубликов';
 
-   //  ngAfterContentInit(){
-   //      this._transactionService.pay( this.paymentData )
-   //                              .subscribe(
-   //                                  success => this._showSuccess( success ),
-   //                                  error =>  this._showFailed());
-   // }
+        }
+        if( isNaN(this.autopayData.amount) ){
+            this.autopayMaximum = '';
+        } else {
+            this.autopayMaximum = this.autopayData.amount + ' Рубликов';
 
+        }
+    }
 
     onCancel(){
         this.cancel.emit( null );
@@ -50,11 +57,47 @@ export class AutopayComponent{
        this.save = true;
     }
 
+    addClass(item, className ){
+
+        if( item.className.indexOf( className ) < 0 ){
+            if( item.className.length ){
+                item.className = item.className + ' ' + className;
+            } else {
+                item.className = className;
+            }
+        }
+
+    }
+
+
     onSave(){
-             this._autopayService.save( 'minimum=' + parseFloat( this.autopayMinimum ) +'&saveSum=' + parseFloat( this.autopayMaximum ) )
-                                     .subscribe(
-                                         success => this.cancel.emit( null ),
-                                         error =>  console.log( error ));
+
+        let inputs = window.document.getElementsByTagName( 'input' ),
+            valid = true;
+
+        for ( let input of inputs ){
+            if( input.value == '' ){
+                this.addClass( input, 'error' );
+                valid = false;
+            }
+        }
+
+        if( valid ){
+            this._autopayService.save( 'minimum=' + parseFloat( this.autopayMinimum ) +'&saveSum=' + parseFloat( this.autopayMaximum ) )
+                .subscribe(
+                    success => this.cancel.emit( null ),
+                    error =>  console.log( error ));
+        }
+
+    }
+
+    onClickInput(event,type){
+        let data = {
+            input: <HTMLInputElement>event.target.parentElement.getElementsByTagName('input')[0],
+            type: type
+        };
+
+        this.onChangeAutopay.emit( data );
     }
 
     changeAutopayMinimum(){

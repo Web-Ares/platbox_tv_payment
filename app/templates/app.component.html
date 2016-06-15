@@ -41,11 +41,9 @@
 
     <my-autopay
             *ngIf="!paymentsVisibility && autoPayVisibility"
+            [autopayData]="autopayData"
             (cancel)="cancel($event)"
-            [autopayMinimum]="autopayData.minimum"
-            [autopayMaximum]="autopayData.amount"
-            (onChangeAutopayMinimum)="onChangeAutopayMinimum($event)"
-            (onChangeAutopayMaximum)="onChangeAutopayMaximum($event)"></my-autopay>
+            (onChangeAutopay)="showKeyboard($event)"></my-autopay>
 
 </div>
 <!-- /site -->

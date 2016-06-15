@@ -9,8 +9,6 @@ export class AutopayService {
 
     save (data): Observable<any[]> {
 
-        console.log( data );
-
         let options = new RequestOptions({
             search: data,
             method: RequestMethod.Get

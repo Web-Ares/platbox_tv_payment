@@ -102,8 +102,20 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        let data = window.document.getElementsByTagName('body')[0].dataset;
-        this.paymentData.amount = data.amount;
+        let payment = JSON.parse( window.document.getElementsByTagName('body')[0].dataset.payment ),
+            autoPay = JSON.parse( window.document.getElementsByTagName('body')[0].dataset.autopay );
+
+
+        for ( let item in payment ){
+            this.paymentData[ item ] = payment[ item ];
+
+        }
+
+        for ( let item in autoPay ){
+            this.autopayData[ item ] = autoPay[ item ];
+
+        }
+
         this.setSize();
     }
 
@@ -133,16 +145,28 @@ export class AppComponent implements OnInit {
     }
 
     enterSimbol( value ){
-        let maskSimbol = this.currentInput.dataset.masksimbol,
+        let dataset = this.currentInput.dataset,
+            maskSimbol = dataset.masksimbol,
+            sufix = dataset.sufix,
             type = this.keyboardType,
-            oldVal = this.paymentData[ type ],
-            maskIndex = oldVal.indexOf( maskSimbol );
+            oldVal = null,
+            maskIndex = null;
 
         if( maskSimbol ){
+            oldVal = this.paymentData[ type ];
+            maskIndex = oldVal.indexOf( maskSimbol );
             if( maskIndex >= 0 ){
                 this.paymentData[ type ] = ( oldVal.substring( 0, maskIndex ) + value + oldVal.substring( maskIndex + 1 ) );
             }
-        } else {
+        } else if ( sufix ){
+
+            if( isNaN(this.autopayData[ type ]) ){
+                this.autopayData[ type ] = parseInt( value )
+            } else {
+                this.autopayData[ type ] = parseInt( this.autopayData[ type ] + value );
+            }
+
+        } else{
             this.paymentData[ type ] += value;
         }
 
@@ -195,19 +219,26 @@ export class AppComponent implements OnInit {
     removeSymbol(){
         let dataset = this.currentInput.dataset,
             mask = dataset.mask,
+            sufix = dataset.sufix,
             maskSymbol = dataset.masksimbol,
             type = this.keyboardType,
-            oldVal = this.paymentData[ type ], i = null;
+            oldVal = null,
+            i = null;
 
         if( mask ){
+            oldVal = this.paymentData[ type ];
             for( i = mask.length-1; i >= 0; i-- ){
                 if( mask[ i ] == maskSymbol && oldVal[ i ] != maskSymbol ){
                     this.paymentData[ type ] = ( oldVal.substring( 0, i ) + maskSymbol + oldVal.substring( i + 1 ) );
                     break;
                 }
             }
+        } else if ( sufix ){
+            oldVal = this.autopayData[ type ] + '';
+            this.autopayData[ type ] = parseInt( oldVal.substr(0,oldVal.length -1 ) );
         } else {
-            this.paymentData[ type ] = oldVal.substr(0,oldVal.length -1 );
+            oldVal = this.paymentData[ type ];
+            this.paymentData[ type ] = parseInt( oldVal.substr(0,oldVal.length -1 ) );
         }
 
     }
@@ -244,14 +275,6 @@ export class AppComponent implements OnInit {
         this.autoPayVisibility = true;
     }
 
-    onChangeAutopayMinimum( value ){
-        this.autopayData.minimum = value;
-    }
-
-    onChangeAutopayMaximum( value ){
-        this.autopayData.amount = value;
-    }
-
     showKeyboard( data ){
         this.keyboardVisibility = true;
 
@@ -266,7 +289,9 @@ export class AppComponent implements OnInit {
              this.keyboardType == 'cardMonth' ||
              this.keyboardType == 'cardYear' ||
              this.keyboardType == 'alfa' ||
-             this.keyboardType == 'cardCvv') {
+             this.keyboardType == 'cardCvv' ||
+             this.keyboardType == 'amount' ||
+             this.keyboardType == 'minimum') {
 
             this.keyboardVisibilityFull = false;
             this.keyboardVisibilityNumerical = true;

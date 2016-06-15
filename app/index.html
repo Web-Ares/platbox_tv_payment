@@ -67,7 +67,21 @@
     </script>
 </head>
 <!-- 3. Display the application -->
-<body data-amount="1500">
+<body data-payment='{
+        "amount": "1500",
+        "mobileNumber": "",
+        "cardNumber": "",
+        "cardMonth": "",
+        "cardYear": "",
+        "alfa": "",
+        "yandex": "",
+        "payPal": "",
+        "savePaymentData": true
+      }'
+        data-autopay='{
+            "minimum": 336,
+            "amount": 1000
+        }'>
 <my-app>
 
 
