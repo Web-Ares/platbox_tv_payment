@@ -6,7 +6,7 @@ import { Component, Output, EventEmitter } from 'angular2/core';
     styleUrls: [ 'app/css/license.component.css' ]
 })
 
-export class LicenseComponent {
+export class LicenseComponent{
     @Output() acceptLicense = new EventEmitter();
     @Output() cancel = new EventEmitter();
     @Output() showTransaction = new EventEmitter();
@@ -42,8 +42,22 @@ export class LicenseComponent {
         ]
     };
 
+
+    addClass(item, className ){
+
+        if( item.className.indexOf( className ) < 0 ){
+            if( item.className.length ){
+                item.className = item.className + ' ' + className;
+            } else {
+                item.className = className;
+            }
+        }
+
+    }
+
     onOk(){
         this.showTransaction.emit( null );
+        console.log( 2 );
     }
 
     onCancel(){
@@ -52,9 +66,11 @@ export class LicenseComponent {
 
     onReadOk(){
         this.showedText = false;
+        console.log( 3 );
     }
 
     onReadText(){
+        
         this.showedText = true;
     }
 
