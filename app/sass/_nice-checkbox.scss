@@ -13,6 +13,14 @@
         display: block;
       }
 
+      &:hover {
+
+        &:before {
+          border-color: #0071C1;
+        }
+
+      }
+
     }
 
     &:disabled + label {
@@ -53,6 +61,7 @@
 
     &:before {
       display: none;
+      z-index: 3;
       top: 0.64em;
       left: .48em;
       box-sizing: border-box;
@@ -63,6 +72,15 @@
       height: 0.64em;
       transform: rotate( -45deg );
       content: '';
+    }
+
+    &:hover {
+
+      &:after {
+        background: #fff;
+        box-shadow: 0 0 5px -1px rgba(255,255,255,0.6);
+      }
+
     }
 
   }

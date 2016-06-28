@@ -1,6 +1,6 @@
 .btn {
   border: .125em solid $btn-border;
-  height: 2.92em;
+  height: 2.917em;
   width: 12.5em;
   padding: 0 .42em;
   color: $btn-color;
@@ -20,13 +20,14 @@
     background: $btn-back-hover;
     border-color: $btn-border-hover;
     color: $btn-color-active;
+    box-shadow: 0 0 10px 0 rgba(255,255,255,0.53);
   }
 
   &:active {
     color: $btn-color-active;
     background: $btn-back-active;
     border-color: $btn-border-hover;
-
+    box-shadow: 0 0 10px 0 rgba(255,255,255,0.53);
   }
 
 }
