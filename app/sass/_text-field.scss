@@ -25,8 +25,26 @@
 
     &.error {
       background: $text-field-back3;
-      color: $text-field-color3;
-      box-shadow: 0 0 15px 5px $text-field-box-shadow3;
+      color: $text-field-color1;
+      box-shadow: 0 0 5px 0 $text-field-box-shadow3;
+
+      +div {
+        &:before,
+        &:after {
+          position: absolute;
+          top: 50%;
+          right: 0.23em;
+          width: 14px;
+          height: 4px;
+          background: #AA120E;
+          content: '';
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
     }
 
   }
