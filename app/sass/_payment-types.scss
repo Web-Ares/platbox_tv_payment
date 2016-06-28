@@ -28,14 +28,14 @@
 
     &:after {
       position: absolute;
-      right: 1.4em;
+      right: 1.34em;
       top: 50%;
-      border: 0.12em solid $payment-types__btn-color;
+      border: 0.16em solid $payment-types__btn-color;
       border-bottom: none;
       border-left: none;
-      width: 0.64em;
-      height: 0.64em;
-      margin-top: -0.32em;
+      width: 0.54em;
+      height: 0.54em;
+      margin-top: -0.27em;
       transform-origin: 50%;
       transform: rotate( 45deg );
       content: '';
@@ -45,12 +45,12 @@
     &:focus,
     &:hover {
       background: $payment-types__btn-back-hover;
-      color: $payment-types__btn-color-hover;
+      color: $payment-types__btn-color-hover1;
       transform: translateX( 0.8em );
       box-shadow: 0 0 0.4em rgba( 255,255,255,0.53 );
 
       &:after {
-        border-color: $payment-types__btn-color-hover;
+        border-color: $payment-types__btn-color-hover2;
       }
 
     }

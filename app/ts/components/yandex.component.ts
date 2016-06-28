@@ -11,7 +11,7 @@ export class YandexComponent {
     @Output() showKeyboard = new EventEmitter();
 
     content = {
-        inputLabel: 'Телефон или e-mail'
+        inputLabel: 'Телефон или Email'
     };
 
     onClickInput( event,type ){

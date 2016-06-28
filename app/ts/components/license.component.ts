@@ -18,7 +18,7 @@ export class LicenseComponent{
         btnLicense: 'текст соглашения',
         btnCancel: 'отмена',
         btnOk: 'готово',
-        btnRead: 'готово',
+        btnRead: 'закрыть',
         licenseTitle: 'Лицензионное соглашение',
         licenseTexts: [
             'This is Photoshop\'s version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean \

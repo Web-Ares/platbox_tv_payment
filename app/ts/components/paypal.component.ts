@@ -11,7 +11,7 @@ export class PayPalComponent {
     @Output() showKeyboard = new EventEmitter();
 
     content = {
-        inputLabel: 'Ваш e-mail'
+        inputLabel: 'Ваш Email'
     };
 
     onClickInput( event,type ){
