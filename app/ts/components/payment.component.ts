@@ -87,11 +87,23 @@ export class PaymentComponent {
         if( this.paymentData.paymentType == 7 ){
 
             let mail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            let countAt = 0;
+
 
             for( let input of inputs ){
                 if( input.value == '' || !mail.test(input.value ) ){
                     this.addClass( input, 'error' );
                     valid = false;
+                } else {
+                    for ( let simbol of input.value ){
+                        if( simbol == '@' ){
+                            countAt++;
+                        }
+                    }
+                    if (countAt > 1){
+                        valid = false;
+
+                    }
                 }
             }
         }
