@@ -28,7 +28,7 @@
   .license__btns {
     position: relative;
     display: flex;
-    margin: 1.2em 0;
+    margin: 1.5em 0 0.8em;
   }
 
   .license__text-btn {
@@ -71,6 +71,7 @@
       z-index: 1;
     }
     .license__gradient {
+      display: none;
       position: fixed;
       pointer-events: none;
       top: 0;

@@ -20,13 +20,20 @@
     &.active {
       background: $text-field-back1;
       color: $text-field-color1;
-      box-shadow: 0 0 .2em .06em $text-field-box-shadow1;
+      box-shadow: 0 0 .3em .06em $text-field-box-shadow1;
+
+      + div {
+        &:hover {
+          background: transparent;
+          box-shadow: none;
+        }
+      }
     }
 
     &.error {
       background: $text-field-back3;
       color: $text-field-color1;
-      box-shadow: 0 0 5px 0 $text-field-box-shadow3;
+      box-shadow: 0 0 15px 0 $text-field-box-shadow3;
 
       +div {
         &:before,
@@ -56,6 +63,11 @@
     right: 0;
     bottom: 0;
     z-index: 2;
+
+    &:hover {
+      background: $text-field-back1;
+      box-shadow: 0 0 .3em .06em $text-field-box-shadow1;
+    }
   }
 
   &.text-field_small {
