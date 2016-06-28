@@ -128,18 +128,6 @@ export class AppComponent implements OnInit {
         this.keyboardVisibility = false;
     }
 
-    changeAlfa( alfa ){
-        this.paymentData.alfa = alfa;
-    }
-
-    changeYandex( yandex ){
-        this.paymentData.yandex = yandex;
-    }
-
-    changePayPaal( payPal ){
-        this.paymentData.payPal = payPal;
-    }
-
     changeSavePaymentData( savePayment ){
         this.paymentData.savePaymentData = savePayment;
     }
@@ -238,7 +226,7 @@ export class AppComponent implements OnInit {
             this.autopayData[ type ] = parseInt( oldVal.substr(0,oldVal.length -1 ) );
         } else {
             oldVal = this.paymentData[ type ];
-            this.paymentData[ type ] = parseInt( oldVal.substr(0,oldVal.length -1 ) );
+            this.paymentData[ type ] = oldVal.substr(0,oldVal.length -1 );
         }
 
     }
