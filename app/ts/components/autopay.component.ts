@@ -94,6 +94,7 @@ export class AutopayComponent implements DoCheck{
     onClickInput(event,type){
         let data = {
             input: <HTMLInputElement>event.target.parentElement.getElementsByTagName('input')[0],
+            span: <HTMLElement>event.target.parentElement.getElementsByTagName('span')[0],
             type: type
         };
 
