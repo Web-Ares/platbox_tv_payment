@@ -61,25 +61,31 @@
     </div>
     <!-- /payment__layout -->
     
-    <!-- payment__btns -->
-    <div class="payment__btns">
+    <!-- payment__footer -->
+    <div class="payment__footer">
 
-        <!-- btn -->
-        <button class="btn payment__cancel"
-                (click)="onCancel()">{{ content.btnCancel }}</button>
-        <!-- /btn -->
+        <div class="payment__btns">
 
-        <!-- btn -->
-        <button class="btn payment__ok"
-                (click)="onOk()">{{ content.btnOk }}</button>
-        <!-- /btn -->
+            <!-- btn -->
+            <button class="btn payment__cancel"
+                    (click)="onCancel()">{{ content.btnCancel }}</button>
+            <!-- /btn -->
+
+            <!-- btn -->
+            <button class="btn payment__ok"
+                    (click)="onOk()">{{ content.btnOk }}</button>
+            <!-- /btn -->
+
+        </div>
+
+        <!-- payment__copyright -->
+        <div class="payment__copyright">© «PlatBox», 2015  Безопасное соединение</div>
+        <!-- /payment__copyright -->
 
     </div>
-    <!-- /payment__btns -->
+    <!-- /payment__footer -->
 
-    <!-- payment__copyright -->
-    <div class="payment__copyright">© «PlatBox», 2015  Безопасное соединение</div>
-    <!-- /payment__copyright -->
+
 
 </div>
 <!-- /payment -->

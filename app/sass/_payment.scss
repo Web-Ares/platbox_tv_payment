@@ -1,21 +1,33 @@
 .payment {
+  @include flexbox();
+  @include flex-wrap( wrap );
+  @include flex-direction( column );
+  @include align-items( flex-start );
+  @include justify-content( space-between );
   padding: .83em 15.88541667% .7em;
+  min-height: 7.04em;
+
+  .payment__footer {
+    @include flexbox();
+    @include flex-wrap( wrap );
+    @include flex-direction( row );
+    @include align-items( flex-end );
+    @include justify-content( space-between );
+    padding-top: .52em;
+  }
 
   .payment__btns {
-    display: flex;
-    padding-top: .62em;
+    @include flexbox();
   }
 
   .payment__layout_chk {
-    padding-top: .46em;
+    padding-top: .27em;
   }
   .payment__copyright {
-    position: absolute;
-    bottom: 7.3em;
-    right: 15.3em;
     opacity: .3;
     font-family: 'PT Sans Caption', sans-serif;
     color: #fff;
     font-size: .2em;
+    line-height: 0.6em;
   }
 }

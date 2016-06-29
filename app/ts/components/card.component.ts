@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, OnChanges } from 'angular2/core';
+import { Component, Output, OnInit, EventEmitter, Input, OnChanges } from 'angular2/core';
 
 @Component({
     selector: 'my-card',
@@ -21,6 +21,38 @@ export class CardComponent implements OnChanges{
         cvvLabel: 'CVV / CVC'
     };
 
+    addClass( item, className ){
+
+        if( item.className.indexOf( className ) < 0 ){
+            if( item.className.length ){
+                item.className = item.className + ' ' + className;
+            } else {
+                item.className = className;
+            }
+        }
+
+    }
+
+    ngOnInit() {
+
+        let func = this.addClass;
+
+        setTimeout( function() {
+
+            for( let i = 0; i < document.getElementsByClassName('text-field').length; i++ ) {
+
+                let input = document.getElementsByClassName('text-field')[i].getElementsByTagName('input');
+
+                if(  !( input[0].value == '' ) ) {
+                    func( input[0], 'fill' );
+                }
+
+            }
+
+        }, 1 );
+
+    }
+
     ngOnChanges(){
         let i;
 
@@ -36,6 +68,7 @@ export class CardComponent implements OnChanges{
     onClickInput( event,type ){
         let data = {
             input: <HTMLInputElement>event.target.parentElement.getElementsByTagName('input')[0],
+            span: <HTMLElement>event.target.parentElement.getElementsByTagName('span')[0],
             type: type
         };
 
