@@ -68,7 +68,7 @@ export class PaymentComponent {
             this.paymentData.paymentType == 5 ){
 
             for( let input of inputs ){
-                if( input.value.indexOf('_') >= 0 || input.value == '' ){
+                if( input.value.indexOf('_') >= 0 || input.value == '' || input.value.indexOf('#') >= 0 ){
                     this.addClass( input, 'error' );
                     valid = false;
                 }
