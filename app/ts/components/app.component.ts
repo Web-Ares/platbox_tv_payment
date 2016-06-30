@@ -229,6 +229,7 @@ export class AppComponent implements OnInit {
             this.paymentData[ type ] = oldVal.substr(0,oldVal.length -1 );
         }
 
+
     }
 
     setSelectedPaymentType( paymentType ){
