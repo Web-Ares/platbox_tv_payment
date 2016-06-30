@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
         if ( index < 0 ){
             return text;
         } else {
-            return text.substr( 0, index-1 );
+            return text.substr( 0, index );
         }
 
     }
@@ -116,6 +116,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         let payment = JSON.parse( window.document.getElementsByTagName('body')[0].dataset.payment ),
             autoPay = JSON.parse( window.document.getElementsByTagName('body')[0].dataset.autopay );
+
 
         for ( let item in payment ){
             this.paymentData[ item ] = payment[ item ];
@@ -169,7 +170,7 @@ export class AppComponent implements OnInit {
             this.paymentData[ type ] += value;
         }
 
-        this.currentSpan.innerText = this.getInnerText( this.paymentData[ type ] )
+        this.currentSpan.innerText = this.getInnerText( this.paymentData[ type ] );
 
     }
 
@@ -213,7 +214,7 @@ export class AppComponent implements OnInit {
         if( mask == this.paymentData[ type ] ){
             this.paymentData[ type ] = '';
         }
-        this.currentSpan.innerText = this.getInnerText( this.paymentData[ type ] );
+        this.currentSpan.innerText = this.paymentData[ type ];
         this.removeClass( this.currentInput, 'active' );
 
         if( !(this.paymentData[ type ]=='') ) {
@@ -252,6 +253,7 @@ export class AppComponent implements OnInit {
     setSelectedPaymentType( paymentType ){
         this.selectedPaymentType = paymentType;
         this.paymentData.paymentType = this.selectedPaymentType.id;
+
     }
 
     setSize(){

@@ -30,19 +30,23 @@
         }
          span {
            opacity: 1;
+
+           &:after {
+             visibility: visible;
+           }
          }
       }
     }
 
-    &.fill {
-
-      + div {
-        &:hover {
-          background: transparent;
-          box-shadow: none;
-        }
-      }
-    }
+    //&.fill {
+    //
+    //  + div {
+    //    &:hover {
+    //      background: transparent;
+    //      box-shadow: none;
+    //    }
+    //  }
+    //}
 
     &.error {
       background: $text-field-back3;
@@ -90,7 +94,7 @@
       color: transparent;
 
       &:after {
-        margin-left: 4px;
+        visibility: hidden;
         color: $text-field-color1;
         -webkit-animation: blink 1s linear infinite;
         animation: blink 1s linear infinite;
@@ -101,6 +105,11 @@
     &:hover {
       background: $text-field-back1;
       box-shadow: 0 0 .3em .06em $text-field-box-shadow1;
+
+      span {
+        opacity: 1;
+        color: $text-field-color1;
+      }
     }
   }
 
