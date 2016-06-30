@@ -75,6 +75,17 @@ export class AppComponent implements OnInit {
 
     }
 
+    getInnerText( text ){
+        let index = text.indexOf('_');
+
+        if ( index < 0 ){
+            return text;
+        } else {
+            return text.substr( 0, index );
+        }
+
+    }
+
     hasClass( elem, classNme ) {
         return elem.className.indexOf( classNme ) >= 0;
     }
@@ -105,6 +116,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         let payment = JSON.parse( window.document.getElementsByTagName('body')[0].dataset.payment ),
             autoPay = JSON.parse( window.document.getElementsByTagName('body')[0].dataset.autopay );
+
 
         for ( let item in payment ){
             this.paymentData[ item ] = payment[ item ];
@@ -158,7 +170,7 @@ export class AppComponent implements OnInit {
             this.paymentData[ type ] += value;
         }
 
-        this.currentSpan.innerText = this.paymentData[ type ]
+        this.currentSpan.innerText = this.getInnerText( this.paymentData[ type ] );
 
     }
 
@@ -186,7 +198,7 @@ export class AppComponent implements OnInit {
         if( mask && this.paymentData[ type ] == '' ){
             this.paymentData[ type ] = mask;
         }
-        this.currentSpan.innerText = this.paymentData[ type ]
+        this.currentSpan.innerText = this.getInnerText( this.paymentData[ type ] );
         this.addClass( this.currentInput, 'active' );
         this.removeClass( this.currentInput, 'error' );
         this.removeClass( this.currentInput, 'fill' );
@@ -234,13 +246,14 @@ export class AppComponent implements OnInit {
             this.paymentData[ type ] = oldVal.substr(0,oldVal.length -1 );
         }
 
-        this.currentSpan.innerText = this.paymentData[ type ]
+        this.currentSpan.innerText = this.getInnerText( this.paymentData[ type ] );
 
     }
 
     setSelectedPaymentType( paymentType ){
         this.selectedPaymentType = paymentType;
         this.paymentData.paymentType = this.selectedPaymentType.id;
+
     }
 
     setSize(){

@@ -14,30 +14,17 @@ export class CompayComponent {
         inputLabel: 'Номер телефона'
     };
 
-    addClass( item, className ){
-
-        if( item.className.indexOf( className ) < 0 ){
-            if( item.className.length ){
-                item.className = item.className + ' ' + className;
-            } else {
-                item.className = className;
-            }
-        }
-
-    }
-
     ngOnInit() {
-
-        let func = this.addClass;
 
         setTimeout( function() {
 
             for( let i = 0; i < document.getElementsByClassName('text-field').length; i++ ) {
 
-                let input = document.getElementsByClassName('text-field')[i].getElementsByTagName('input');
+                let input = document.getElementsByClassName('text-field')[i].getElementsByTagName('input'),
+                    span = document.getElementsByClassName('text-field')[i].getElementsByTagName('span');
 
                 if(  !( input[0].value == '' ) ) {
-                    func( input[0], 'fill' );
+                    span[0].innerText = input[0].value ;
                 }
 
             }
