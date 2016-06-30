@@ -44,6 +44,7 @@ export class AppComponent implements OnInit {
         amount: '1000 Рублей'
     };
     currentInput: HTMLInputElement;
+    currentSpan: HTMLElement;
     paymentsVisibility = true;
     transactionVisibility = false;
     keyboardVisibility = false;
@@ -105,7 +106,6 @@ export class AppComponent implements OnInit {
         let payment = JSON.parse( window.document.getElementsByTagName('body')[0].dataset.payment ),
             autoPay = JSON.parse( window.document.getElementsByTagName('body')[0].dataset.autopay );
 
-
         for ( let item in payment ){
             this.paymentData[ item ] = payment[ item ];
 
@@ -158,6 +158,8 @@ export class AppComponent implements OnInit {
             this.paymentData[ type ] += value;
         }
 
+        this.currentSpan.innerText = this.paymentData[ type ]
+
     }
 
     makeInputActive(){
@@ -184,9 +186,10 @@ export class AppComponent implements OnInit {
         if( mask && this.paymentData[ type ] == '' ){
             this.paymentData[ type ] = mask;
         }
-
+        this.currentSpan.innerText = this.paymentData[ type ]
         this.addClass( this.currentInput, 'active' );
         this.removeClass( this.currentInput, 'error' );
+        this.removeClass( this.currentInput, 'fill' );
 
 
     }
@@ -199,11 +202,13 @@ export class AppComponent implements OnInit {
         if( mask == this.paymentData[ type ] ){
             this.paymentData[ type ] = '';
         }
-
+        this.currentSpan.innerText = this.paymentData[ type ];
         this.removeClass( this.currentInput, 'active' );
 
+        if( !(this.paymentData[ type ]=='') ) {
+            this.addClass( this.currentInput, 'fill' );
+        }
     }
-
     removeSymbol(){
         let dataset = this.currentInput.dataset,
             mask = dataset.mask,
@@ -229,6 +234,7 @@ export class AppComponent implements OnInit {
             this.paymentData[ type ] = oldVal.substr(0,oldVal.length -1 );
         }
 
+        this.currentSpan.innerText = this.paymentData[ type ]
 
     }
 
@@ -269,6 +275,7 @@ export class AppComponent implements OnInit {
 
         this.keyboardType = data.type;
         this.currentInput = data.input;
+        this.currentSpan = data.span;
 
         this.makeInputActive();
 
