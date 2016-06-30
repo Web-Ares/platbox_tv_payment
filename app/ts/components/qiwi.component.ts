@@ -29,14 +29,28 @@ export class QiwiComponent {
 
             }
 
-        }, 1 );
+        }, 100 );
 
     }
 
     onClickInput( event,type ){
+
+        var parent = event.target.parentElement;
+
+
+        if( parent.className == 'text-field' ) {
+
+            parent = event.target.parentElement;
+
+        } else {
+
+            parent = event.target.parentElement.parentElement;
+
+        }
+
         let data = {
-            input: <HTMLInputElement>event.target.parentElement.getElementsByTagName('input')[0],
-            span: <HTMLElement>event.target.parentElement.getElementsByTagName('span')[0],
+            input: <HTMLInputElement>parent.getElementsByTagName('input')[0],
+            span: <HTMLElement>parent.getElementsByTagName('span')[0],
             type: type
         };
 

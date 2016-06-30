@@ -253,7 +253,6 @@ export class AppComponent implements OnInit {
     setSelectedPaymentType( paymentType ){
         this.selectedPaymentType = paymentType;
         this.paymentData.paymentType = this.selectedPaymentType.id;
-
     }
 
     setSize(){
